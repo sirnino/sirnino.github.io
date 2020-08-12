@@ -5,9 +5,7 @@ date:   2020-08-12 16:33:00:00 +0000
 categories: programming, solid
 ---
 
-The Single Responsibiliy is one of the SOLID Principles postulated by Robert Martin.
-[**Robert Martin**](https://en.wikipedia.org/wiki/Robert_C._Martin), aka _"Uncle Bob"_ is a coder since 1970 and he's now a world-wide-appreciated software architect, ICT expert and clean code evangelist.
-Together with Martin Fowler, Ken Shwaber and other forteen people, he was also one of the creator of the [Agile Manifesto](https://agilemanifesto.org/) that is now a guideline for many development team all around the world.
+The Single Responsibiliy is one of the **SOLID** Principles postulated by Robert Martin.
 
 **SOLID** is a mnemonic achronym that stands for:
 
@@ -19,19 +17,17 @@ Together with Martin Fowler, Ken Shwaber and other forteen people, he was also o
 
 This 5 principles must guide every software developer in wrinting his code. In this article I'll focus on the first one.
 
-## Single Responsibiliy Principle (SRP)
+The Single Responsibiliy Principle says that 
 
-This principle says:
-
-> A module should have one and only one reason to change
+> _"A module should have one and only one reason to change"_
 
 This principle means that a module (e.g. a Java Class) should change only for one specific reason. As it is, this principle is interpretaion prone, so we can also read it as:
 
-> Each module should be intended to do only one thing
+> _"Each module should be intended to do only one thing"_
 
 And also:
 
-> If a change request come, only one module should be affected
+> _"If a change request come, only one module should be affected"_
 
 Imagine that you're coding a system that has three actors:
 - The Chief Financial Officer (CFO) that uses the system to calculate the pay of each employee;
@@ -107,6 +103,11 @@ This is an article of the SOLID Principles serie. Checkout the other articles he
 - [Liskov Substitution (LSP)](//#)
 - [Interface Segregation (ISP)](//#)
 - [Dependency Inversion (DIP)](//#)
+
+## About the creator
+
+[**Robert Martin**](https://en.wikipedia.org/wiki/Robert_C._Martin), aka _"Uncle Bob"_ is a coder since 1970 and he's now a world-wide-appreciated software architect, ICT expert and clean code evangelist.
+Together with Martin Fowler, Ken Shwaber and other forteen people, he was also one of the creator of the [Agile Manifesto](https://agilemanifesto.org/) that is now a guideline for many development team all around the world.
 
 
 ## References
