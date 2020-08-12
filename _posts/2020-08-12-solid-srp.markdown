@@ -5,6 +5,8 @@ date:   2020-08-12 16:33:00:00 +0000
 categories: programming solid
 ---
 
+## Introduction
+
 The Single Responsibiliy is one of the **SOLID** Principles postulated by Robert Martin.
 
 **SOLID** is a mnemonic achronym that stands for:
@@ -16,6 +18,15 @@ The Single Responsibiliy is one of the **SOLID** Principles postulated by Robert
 - **D**ependency Inversion (DIP)
 
 This 5 principles must guide every software developer in wrinting his code. In this article I'll focus on the first one.
+
+This is an article of the SOLID Principles serie. Checkout the other articles here:
+
+- [Open closed (OCP)](//#)
+- [Liskov Substitution (LSP)](//#)
+- [Interface Segregation (ISP)](//#)
+- [Dependency Inversion (DIP)](//#)
+
+## The Single Responsibiliy Principle
 
 The Single Responsibiliy Principle says that 
 
@@ -96,13 +107,6 @@ Other benefits of this approach are:
 - **Testability**: Each module is easily testable without interferences;
 - **Maintainability**: The modules are more lightweight and have also a lower cognitive complexity then a big monolithic module.
 
-
-This is an article of the SOLID Principles serie. Checkout the other articles here:
-
-- [Open closed (OCP)](//#)
-- [Liskov Substitution (LSP)](//#)
-- [Interface Segregation (ISP)](//#)
-- [Dependency Inversion (DIP)](//#)
 
 ## About the creator
 
