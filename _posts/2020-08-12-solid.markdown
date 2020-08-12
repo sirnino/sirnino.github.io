@@ -2,7 +2,7 @@
 layout: post
 title:  "SRP - Single Responsibiliy Principle (with examples)"
 date:   2020-08-12 16:33:00:00 +0000
-categories: programming, solid
+categories: programming solid
 ---
 
 The Single Responsibiliy is one of the **SOLID** Principles postulated by Robert Martin.
