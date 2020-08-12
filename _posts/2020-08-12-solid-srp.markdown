@@ -36,18 +36,18 @@ Imagine that you're coding a system that has three actors:
 
 What if you code a single class that is in charge for both calculate the pay, report the working hours and save the monthly data?
 
-     **public class** Employee{
+     public class Employee{
 		//All the private fields here
 		
-		**public float** calcPay(){
+		public float calcPay(){
 			...
 		}
 		
-		**public void** reportHours(**float** hours){
+		public void reportHours(float hours){
 			...
 		}
 		
-		**public void** save(){
+		public void save(){
 			...
 		}
 	 }
@@ -61,26 +61,26 @@ This is something deprecable because, basing on the revision is done, the other 
 
 A SRP compliant code is the following:
 
-	  **public class** PayCalculator{
+	  public class PayCalculator{
 		  //pay calculation specific private fields 
 		
-		  **public float** calcPay(){
+		  public float calcPay(){
 			...
 		  } 
 	  }
 	  
-	  **public class** HourReporter{
+	  public class HourReporter{
 		  //hours reporting specific private fields 
 		
-		  **public void** reportHours(**float** hours){
+		  public void reportHours(float hours){
 			...
 		  } 
 	  }
 	  
-	  **public class** DataSaver{
+	  public class DataSaver{
 		  //data saving specific private fields 
 		
-		  **public void** save(){
+		  public void save(){
 			...
 		  } 
 	  }
