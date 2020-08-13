@@ -45,6 +45,7 @@ Imagine that you're coding a system that has three actors:
 
 What if you code a single class that is in charge for both calculate the pay, report the working hours and save the monthly data?
 
+```java
      public class Employee{
 		//All the private fields here
 		
@@ -60,6 +61,7 @@ What if you code a single class that is in charge for both calculate the pay, re
 			...
 		}
 	 }
+```
 
 You' would have the following situation
 
