@@ -38,6 +38,7 @@ Imagine that you're dealing with the following requirement: _The system must be 
 
 You could address this requirement by writing the code as follows:
 
+```java
      public class DataSerializerService{
 		
 		private MyData getDataFromDB(){
@@ -66,6 +67,7 @@ You could address this requirement by writing the code as follows:
 		}
 		
 	 }
+```
 
 This code works fine, but it's far from being a good code. Why? Imagine that one week after the releas in production, the customer comes to you
 with a change request saying: _Change the current behavior of the system in order to produce a PDF file in place of the Excel._
@@ -78,6 +80,7 @@ This is the reason why extending the code with new functionalities that replace 
 
 A more OCP compliant code for the scenario is the following:
 
+```java
 	  public interface DataSerializer{
 			
 			public FileOutputStream write(MyManipulatedData data);
@@ -118,9 +121,11 @@ A more OCP compliant code for the scenario is the following:
 		}
 		
 	 }
+```
 	  
 With this approach, when a we will need to produce a PDF in place of the Excel, we have only to **extend** the code with a new implementation of a DataSerializer:
-	  
+
+```java
 	  public class PDFSerializer implements DataSerializer{
 			
 			public FileOutputStream write(MyManipulatedData data){
@@ -129,14 +134,16 @@ With this approach, when a we will need to produce a PDF in place of the Excel, 
 			}
 
 	  }
+```
 
 And use this in the DataSerializationService:
 
+```java
 	  private DataSerializer serializer = new PDFSerializer();
+```
 
-
-The code above, has still room for further improvements. For example, both the _manipulate_ and the _getDataFromDB_ methods should be supplied to the
-_DataSerializationService_ as specific implementations of other two interfaces.
+The code above, has still room for further improvements. For example, both the `manipulate` and the `getDataFromDB` methods should be supplied to the
+`DataSerializationService` as specific implementations of other two interfaces.
 
 
 ## About the creator

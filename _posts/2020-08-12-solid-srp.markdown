@@ -72,6 +72,7 @@ This is something deprecable because, basing on the revision is done, the other 
 
 A SRP compliant code is the following:
 
+```java
 	  public class PayCalculator{
 		  //pay calculation specific private fields 
 		
@@ -95,6 +96,7 @@ A SRP compliant code is the following:
 			...
 		  } 
 	  }
+```
 
 ![SRP-2](/res/images/solid/srp-2.png "SRP-2")
 
