@@ -5,8 +5,6 @@ date:   2020-08-12 16:33:00:00 +0000
 categories: programming solid
 ---
 
-## Introduction
-
 The Single Responsibiliy is one of the **SOLID** Principles postulated by Robert Martin.
 
 **SOLID** is a mnemonic achronym that stands for:
@@ -110,13 +108,13 @@ Other benefits of this approach are:
 
 ## About the creator
 
+The SOLID principles were postulated by Robert Martin nei primi anni 2000.
 [**Robert Martin**](https://en.wikipedia.org/wiki/Robert_C._Martin), aka _"Uncle Bob"_ is a coder since 1970 and he's now a world-wide-appreciated software architect, ICT expert and clean code evangelist.
 Together with Martin Fowler, Ken Shwaber and other forteen people, he was also one of the creator of the [Agile Manifesto](https://agilemanifesto.org/) that is now a guideline for many development team all around the world.
 
 
 ## References
 
+- Agile Software Development: Principles, Patterns and Practices - Robert C. Martin
 - The Clean Coder: A Code of Conduct for Professional Programmers - Robert C. Martin
 - Clean architecture - Robert C. Martin
-- Apex Design Patterns - Jitendra Zaa, Anshul Verma
-
