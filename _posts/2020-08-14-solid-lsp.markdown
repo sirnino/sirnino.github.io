@@ -65,13 +65,14 @@ The LSP states that if you change the Program P as follows:
 
 The program should still work as expected.
 
+...
+
 
 ## About the creators
 
 [**Barbara Liskov**](https://en.wikipedia.org/wiki/Barbara_Liskov) is an american computer scientist and Institute Professor at Boston MIT.
 In 2008 she won the Turing award for her contribution in the Object Oriented Programming principle definition.
 
-The SOLID principles were postulated by Robert Martin nei primi anni 2000.
 [**Robert Martin**](https://en.wikipedia.org/wiki/Robert_C._Martin), aka _"Uncle Bob"_ is a coder since 1970 and he's now a world-wide-appreciated software architect, ICT expert and clean code evangelist.
 Together with Martin Fowler, Ken Shwaber and other forteen people, he was also one of the creator of the [Agile Manifesto](https://agilemanifesto.org/) that is now a guideline for many development team all around the world.
 
