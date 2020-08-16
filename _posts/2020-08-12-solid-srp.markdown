@@ -20,7 +20,7 @@ This 5 principles must guide every software developer in wrinting his code. In t
 This is an article of the SOLID Principles serie. Checkout the other articles here:
 
 - [Open closed (OCP)](/programming/solid/2020/08/13/solid-ocp.html)
-- [Liskov Substitution (LSP)](//#)
+- [Liskov Substitution (LSP)](/programming/solid/2020/08/14/solid-lsp.html)
 - [Interface Segregation (ISP)](//#)
 - [Dependency Inversion (DIP)](//#)
 
