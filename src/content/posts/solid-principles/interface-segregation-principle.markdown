@@ -26,7 +26,7 @@ This is an article of the SOLID Principles serie. Checkout the other articles he
 - [Single Responsibiliy (SRP)](/programming/solid/2020/08/12/solid-srp.html)
 - [Open/Closed (OCP)](/programming/solid/2020/08/13/solid-ocp.html)
 - [Liskov Substitution (LSP)](//programming/solid/2020/08/14/solid-lsp.html)
-- [Dependency Inversion (DIP)](//#)
+- [Dependency Inversion (DIP)](/posts/solid-principles/dip-depencency-inversion-principle-with-examples)
 
 ## The Interface Segregation Principle
 
