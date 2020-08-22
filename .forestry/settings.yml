@@ -1,19 +1,11 @@
 ---
 new_page_extension: md
 auto_deploy: false
-admin_path: ''
+admin_path: src
 webhook_url: 
 sections:
 - type: directory
-  path: src/content/posts
-  label: Posts
-  create: documents
-  match: "**/*"
-  new_doc_ext: md
-  templates:
-  - blog-post
-- type: directory
-  path: src/content
+  path: content
   label: Pages
   create: all
   match: "*"
