@@ -1,0 +1,12 @@
+.sidebar-section {
+  display:none !important;
+}
+
+.toc-section {
+  display:none !important;
+}
+
+.content-section {
+  flex: 100% !important;
+  max-width: 100% !important;
+}

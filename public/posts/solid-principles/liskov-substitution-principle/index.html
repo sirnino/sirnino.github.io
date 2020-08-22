@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LSP - Liskov Substitution Principle (with examples)</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navigators/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/logo.png" />
+
+
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+    
+<meta name="description" content="Description of what the Liskov Substitution Principle is and examples of usage" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/assets/css/single.css" />
+<link rel="stylesheet" href="/assets/css/navigators/sidebar.css">
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+    
+    
+    
+      
+    
+    
+      
+    
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://sirnino.github.io">
+      <img src="/assets/images/logo.png">Sirnino</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </div>
+  
+  <img src="/assets/images/logo.png" class="d-none" id="main-logo">
+  <img src="/assets/images/logo.png" class="d-none" id="inverted-logo">
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <input type="text" value="" placeholder="Search" data-search="" id="search-box" />
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(https://sirnino.github.io/uploads/default-hero.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/assets/images/default-avatar.png'/>
+          <h5 class="author-name">Nino Sirchia</h5>
+          <p>August 14, 2020</p>
+        </div>
+
+        <div class="title">
+          <h1>LSP - Liskov Substitution Principle (with examples)</h1>
+        </div>
+
+        <div class="post-content" id="post-content">
+          <p>The Liskov Substitution is a principle postulated by Barbara Liskov and included by Robert Martin among the <strong>SOLID</strong> Principles 
+for Object Oriented software development.</p>
+<p><strong>SOLID</strong> is a mnemonic achronym that stands for:</p>
+<ul>
+<li><strong>S</strong>ingle Responsibiliy (SRP)</li>
+<li><strong>O</strong>pen closed (OCP)</li>
+<li><strong>L</strong>iskov Substitution (LSP)</li>
+<li><strong>I</strong>nterface Segregation (ISP)</li>
+<li><strong>D</strong>ependency Inversion (DIP)</li>
+</ul>
+<p>This 5 principles must guide every software developer in wrinting his code. In this article I&rsquo;ll focus on the third one.</p>
+<p>This is an article of the SOLID Principles serie. Checkout the other articles here:</p>
+<ul>
+<li><a href="/programming/solid/2020/08/12/solid-srp.html">Single Responsibiliy (SRP)</a></li>
+<li><a href="/programming/solid/2020/08/13/solid-ocp.html">Open/Closed (OCP)</a></li>
+<li><a href="/programming/solid/2020/08/18/solid-isp.html">Interface Segregation (ISP)</a></li>
+<li><a href="//#">Dependency Inversion (DIP)</a></li>
+</ul>
+<h2 id="the-liskov-substitution-principle">The Liskov Substitution Principle</h2>
+<p>The Liskov Substitution Principle says that</p>
+<blockquote>
+<p><em>&ldquo;In a computer program P, if S is a subtype of T, then objects of type T may be replaced with objects of type S (i.e., objects of type S may substitute objects of type T) without altering any of the desirable properties of P (correctness, task performed, etc.)&quot;</em></p>
+</blockquote>
+<p>To make it more clear, let&rsquo;s translate it in code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">P</span><span style="color:#f92672">{</span>
+	 
+		<span style="color:#66d9ef">private</span> T myField <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> T<span style="color:#f92672">();</span>
+	 
+	 <span style="color:#f92672">}</span>
+	 
+	 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">T</span><span style="color:#f92672">{</span>
+	 
+		<span style="color:#75715e">//T implementation
+</span><span style="color:#75715e"></span>	 
+	 <span style="color:#f92672">}</span>
+	 
+	 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">S</span> <span style="color:#66d9ef">extends</span> T<span style="color:#f92672">{</span>
+	 
+		<span style="color:#75715e">//S implementation
+</span><span style="color:#75715e"></span>	 
+	 <span style="color:#f92672">}</span>
+</code></pre></div><p>The LSP states that if you change the Program P as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">P</span><span style="color:#f92672">{</span>
+	 
+		<span style="color:#66d9ef">private</span> T myField <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> S<span style="color:#f92672">();</span>
+	 
+	 <span style="color:#f92672">}</span>
+</code></pre></div><p>The program should still work as expected.</p>
+<p>Now let&rsquo;s move to a more concrete example and let&rsquo;s look how is LSP violation simple.</p>
+<p>Let&rsquo;s pretend having the class <code>Message</code> used by the the class <code>Program</code> as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Message</span><span style="color:#f92672">{</span>
+	 
+		<span style="color:#66d9ef">private</span> String title<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">private</span> String text<span style="color:#f92672">;</span>
+		
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setTitle</span><span style="color:#f92672">(</span>String t<span style="color:#f92672">){</span>
+			<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> t<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span>String txt<span style="color:#f92672">){</span>
+			<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">text</span> <span style="color:#f92672">=</span> txt<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		
+		<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getText</span><span style="color:#f92672">(){</span>
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">text</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		
+		<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getTitle</span><span style="color:#f92672">(){</span>
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+	 <span style="color:#f92672">}</span>
+	 
+	 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span><span style="color:#f92672">{</span>
+	 
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">){</span>
+			Program p <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Program<span style="color:#f92672">();</span>
+			
+			Message m <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Message<span style="color:#f92672">();</span>
+			m<span style="color:#f92672">.</span><span style="color:#a6e22e">setTitle</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Message Title&#34;</span><span style="color:#f92672">);</span>
+			m<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World&#34;</span><span style="color:#f92672">);</span>
+			
+			saveMessage<span style="color:#f92672">(</span>m<span style="color:#f92672">);</span>
+			
+		<span style="color:#f92672">}</span>
+		
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveMessage</span><span style="color:#f92672">(</span>Message m<span style="color:#f92672">){</span>
+			String stringToSave <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;====\n&#34;</span> <span style="color:#f92672">+</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">getTitle</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">+</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">getText</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n====\n&#34;</span><span style="color:#f92672">;</span>
+			
+			<span style="color:#75715e">//Save on disk code
+</span><span style="color:#75715e"></span>			
+		<span style="color:#f92672">}</span>
+		
+	 <span style="color:#f92672">}</span>
+</code></pre></div><p>and now imagine there&rsquo;s a <code>ChatMessage</code> class that is a subtype of <code>Message</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ChatMessage</span> <span style="color:#66d9ef">extends</span> Message<span style="color:#f92672">{</span>
+	 
+		<span style="color:#66d9ef">private</span> String recipient<span style="color:#f92672">;</span>
+		
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setRecipient</span><span style="color:#f92672">(</span>String rcpt<span style="color:#f92672">){</span>
+			<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">recipient</span> <span style="color:#f92672">=</span> rcpt<span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		
+		<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getRecipient</span><span style="color:#f92672">(){</span>
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">recipient</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+</code></pre></div><p>Can we substitute the <code>Message</code> object in <code>Program</code> with an <code>ChatMessage</code> object?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span><span style="color:#f92672">{</span>
+	 
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">){</span>
+			Program p <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Program<span style="color:#f92672">();</span>
+			
+			ChatMessage e <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ChatMessage<span style="color:#f92672">();</span>
+			e<span style="color:#f92672">.</span><span style="color:#a6e22e">setTitle</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Message Title&#34;</span><span style="color:#f92672">);</span>
+			e<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World&#34;</span><span style="color:#f92672">);</span>
+			e<span style="color:#f92672">.</span><span style="color:#a6e22e">setRecipient</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;sirnino&#34;</span><span style="color:#f92672">);</span>
+			
+			saveMessage<span style="color:#f92672">(</span>e<span style="color:#f92672">);</span>
+			
+			Message m <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Message<span style="color:#f92672">();</span>
+			m<span style="color:#f92672">.</span><span style="color:#a6e22e">setTitle</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Message Title&#34;</span><span style="color:#f92672">);</span>
+			m<span style="color:#f92672">.</span><span style="color:#a6e22e">setText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World&#34;</span><span style="color:#f92672">);</span>
+			
+			saveMessage<span style="color:#f92672">(</span>m<span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+		
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveMessage</span><span style="color:#f92672">(</span>Message m<span style="color:#f92672">){</span>
+			String stringToSave <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;====\n&#34;</span> <span style="color:#f92672">+</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">getTitle</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">+</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">getText</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n====\n&#34;</span><span style="color:#f92672">;</span>
+			
+			<span style="color:#75715e">//Save on disk code
+</span><span style="color:#75715e"></span>		<span style="color:#f92672">}</span>
+</code></pre></div><p>The answer is <strong>no</strong>. Since, as the name states, the goal of the <code>saveMessage</code> method is to save a serialization of a message,
+with the <code>ChatMessage</code> object such a goal cannot be accomplished, since we loose information about the recipient;</p>
+<p>In order to obtain such a goal, we should customize the <code>saveMessage</code> code to something like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">saveMessage</span><span style="color:#f92672">(</span>Message m<span style="color:#f92672">){</span>
+		String stringToSave <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>m <span style="color:#66d9ef">instanceof</span> Message<span style="color:#f92672">){</span>
+			stringToSave <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;====\n&#34;</span> <span style="color:#f92672">+</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">getTitle</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">+</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">getText</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n====\n&#34;</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>m <span style="color:#66d9ef">instanceof</span> ChatMessage<span style="color:#f92672">){</span>
+			stringToSave <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;====\n&#34;</span> <span style="color:#f92672">+</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">getTitle</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;To: &#34;</span> <span style="color:#f92672">+</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">getRecipient</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n&#34;</span> <span style="color:#f92672">+</span> m<span style="color:#f92672">.</span><span style="color:#a6e22e">getText</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;\n====\n&#34;</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+			
+		<span style="color:#75715e">//Save on disk code
+</span><span style="color:#75715e"></span>	<span style="color:#f92672">}</span>
+</code></pre></div><p>Ok but what if tomorrow a new subtype of <code>Message</code> comes? Let&rsquo;s imagine an <code>Email</code> class:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Email</span> <span style="color:#66d9ef">extends</span> Message<span style="color:#f92672">{</span>
+	 
+		<span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> to<span style="color:#f92672">;</span>
+		
+		<span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> cc<span style="color:#f92672">;</span>
+		
+		<span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> ccn<span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//All getters and setters
+</span><span style="color:#75715e"></span>	<span style="color:#f92672">}</span>
+</code></pre></div><p>another if statement should be added to the <code>saveMessage</code> method in order to deal with this new kind of Object, and so on and so forth for any other 
+new extension of <code>Message</code>. This is absolutely poor code, hard to read, hard to mantain and error prone.</p>
+<p>What the LSP recommend, between the lines, is to arrange a well defined extension hierarchy that makes the code robust, easy to read and mantain.</p>
+<p>In this case we could design a hierarchy as the following:</p>
+<p><img src="/res/images/solid/lsp-1.png" alt="LSP-1" title="LSP-1"></p>
+<p>This will allow us to design specific and consistent savers for each message type from the more general to the more detailed.</p>
+<h2 id="about-the-creators">About the creators</h2>
+<p><a href="https://en.wikipedia.org/wiki/Barbara_Liskov"><strong>Barbara Liskov</strong></a> is an american computer scientist and Institute Professor at Boston MIT.
+In 2008 she won the Turing award for her contribution in the Object Oriented Programming principle definition.</p>
+<p><a href="https://en.wikipedia.org/wiki/Robert_C._Martin"><strong>Robert Martin</strong></a>, aka <em>&ldquo;Uncle Bob&rdquo;</em> is a coder since 1970 and he&rsquo;s now a world-wide-appreciated software architect, ICT expert and clean code evangelist.
+Together with Martin Fowler, Ken Shwaber and other forteen people, he was also one of the creator of the <a href="https://agilemanifesto.org/">Agile Manifesto</a> that is now a guideline for many development team all around the world.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Agile Software Development: Principles, Patterns and Practices - Robert C. Martin</li>
+<li>The Clean Coder: A Code of Conduct for Professional Programmers - Robert C. Martin</li>
+<li>Clean architecture - Robert C. Martin</li>
+</ul>
+
+        </div>
+
+        
+        
+          <div class="btn-improve-page">
+              <a href="https://github.com/sirnino/sirnino.github.io/edit/master/content/posts%5csolid-principles%5cliskov-substitution-principle.markdown">
+                <i class="fas fa-code-branch"></i>
+                Improve This Page
+              </a>
+          </div>
+        
+
+        
+      <hr />
+        <div class="row next-prev-navigator">
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+      <div class="col-md-6 previous-article">
+        <a href="/posts/solid-principles/interface-segregation-principle/" class="btn btn-outline-info">
+          <span><i class="fas fa-chevron-circle-left"></i> Prev</span>
+          <br />
+          <span>ISP - Interface Segregation Principle (with examples)</span>
+        </a>
+      </div>
+      
+    
+    
+      
+        
+        
+          
+              
+          
+        
+        <div class="col-md-6 next-article">
+          <a href="/posts/solid-principles/open-closed-principle/" class="btn btn-outline-info">
+            <span>Next <i class="fas fa-chevron-circle-right"></i></span>
+            <br />
+            <span>OCP - Open/Closed Principle (with examples)</span>
+          </a>
+        </div>
+      
+    
+  
+
+  
+
+</div>
+
+      <hr />
+      
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+  </section>
+
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  <div class="container pt-5">
+    <div class="row text-left">
+      <div class="col-md-4 col-sm-12">
+        <h5>Navigation</h5>
+        
+        <ul>
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#about">About</a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#skills">Skills</a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#experiences">Experiences</a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#recent-posts">Recent Posts</a>
+            </li>
+            
+        </ul>
+        
+
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <h5>Contact Me</h5>
+        <ul>
+          
+          <li><span>Email: </span> <span>asirchia@gmail.com</span></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      <div class="col-md-4">
+        <a id="theme" href="https://github.com/hossainemruz/toha" target="#">
+          <img src="/assets/images/inverted-logo.png">
+          Toha
+        </a>
+      </div>
+      <div class="col-md-4 text-center">© 2020 Copyright.</div>
+      <div class="col-md-4 text-right">
+        <a id="hugo" href="https://gohugo.io/">Powered by Hugo
+        <img
+          src="/assets/images/hugo-logo-wide.svg"
+          alt="Hugo Logo"
+          height="18"
+        />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/assets/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>

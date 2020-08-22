@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Posts</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link rel="stylesheet" href="/assets/css/navigators/navbar.css" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+<link rel="icon" type="image/png" href="/assets/images/logo.png" />
+
+
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+    
+    <link rel="stylesheet" href="/assets/css/list.css">
+    <link rel="stylesheet" href="/assets/css/navigators/sidebar.css">
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    <nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+    
+    
+    
+      
+    
+    
+      
+    
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="https://sirnino.github.io">
+      <img src="/assets/images/logo.png">Sirnino</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      </ul>
+    </div>
+  </div>
+  
+  <img src="/assets/images/logo.png" class="d-none" id="main-logo">
+  <img src="/assets/images/logo.png" class="d-none" id="inverted-logo">
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <input type="text" value="" placeholder="Search" data-search="" id="search-box" />
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content container-fluid" id="content">
+    <div class="container-fluid post-card-holder" id="post-card-holder">
+      
+      
+        <div class="post-card">
+  <a href="/posts/solid-principles/interface-segregation-principle/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/uploads/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">ISP - Interface Segregation Principle (with examples)</h5>
+        <p class="card-text post-summary">The Interface Segretation is a principle postulated by Robert Martin among the SOLID Principles for Object Oriented software development.
+SOLID is a mnemonic achronym that stands for:
+ Single Responsibiliy (SRP) Open closed (OCP) Liskov Substitution (LSP) Interface Segregation (ISP) Dependency Inversion (DIP)  This 5 principles must guide every software developer in wrinting his code. In this article I&rsquo;ll focus on the fourth one.
+This is an article of the SOLID Principles serie.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">August 18, 2020</span>
+        <a
+        href="/posts/solid-principles/interface-segregation-principle/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/solid-principles/liskov-substitution-principle/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/uploads/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">LSP - Liskov Substitution Principle (with examples)</h5>
+        <p class="card-text post-summary">The Liskov Substitution is a principle postulated by Barbara Liskov and included by Robert Martin among the SOLID Principles for Object Oriented software development.
+SOLID is a mnemonic achronym that stands for:
+ Single Responsibiliy (SRP) Open closed (OCP) Liskov Substitution (LSP) Interface Segregation (ISP) Dependency Inversion (DIP)  This 5 principles must guide every software developer in wrinting his code. In this article I&rsquo;ll focus on the third one.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">August 14, 2020</span>
+        <a
+        href="/posts/solid-principles/liskov-substitution-principle/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/solid-principles/open-closed-principle/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/uploads/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">OCP - Open/Closed Principle (with examples)</h5>
+        <p class="card-text post-summary">The Open/Closed is one of the SOLID Principles postulated by Robert Martin.
+SOLID is a mnemonic achronym that stands for:
+ Single Responsibiliy (SRP) Open closed (OCP) Liskov Substitution (LSP) Interface Segregation (ISP) Dependency Inversion (DIP)  This 5 principles must guide every software developer in wrinting his code. In this article I&rsquo;ll focus on the second one.
+This is an article of the SOLID Principles serie. Checkout the other articles here:</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">August 13, 2020</span>
+        <a
+        href="/posts/solid-principles/open-closed-principle/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/solid-principles/single-responsibility-principle/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/uploads/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">SRP - Single Responsibiliy Principle (with examples)</h5>
+        <p class="card-text post-summary">The Single Responsibiliy is one of the SOLID Principles postulated by Robert Martin.
+SOLID is a mnemonic achronym that stands for:
+ Single Responsibiliy (SRP) Open closed (OCP) Liskov Substitution (LSP) Interface Segregation (ISP) Dependency Inversion (DIP)  This 5 principles must guide every software developer in wrinting his code. In this article I&rsquo;ll focus on the first one.
+This is an article of the SOLID Principles serie. Checkout the other articles here:</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">August 12, 2020</span>
+        <a
+        href="/posts/solid-principles/single-responsibility-principle/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/what-is-docker/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/uploads/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">What is Docker?</h5>
+        <p class="card-text post-summary">Maybe you&rsquo;ve heard about Docker, but maybe you stil do not have much clear what docker is. In this post we will explore such technology and will go through 3 reason why you should definitely consider to migrate toward a docker based release of your software.
+But let&rsquo;s start from the beginning: the Docker page on Wikipedia says that
+ Docker is a set of platform-as-a-service (PaaS) products that use OS-level virtualization to deliver software in packages called containers.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 21, 2019</span>
+        <a
+        href="/posts/what-is-docker/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+        <div class="post-card">
+  <a href="/posts/welcome/" class="post-card-link">
+    <div class="card">
+      <div class="card-head">
+        <img class="card-img-top" src='/uploads/default-hero.jpg'/>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Welcome !</h5>
+        <p class="card-text post-summary">Here we are&hellip;
+For passion, for study and for work I have been in the IT field for 15 years. I saw so many technologies borning and dying and, although I am only 30 years old (more or less), I have accumulated some experience in different fields.
+I started as a freelance developer, making websites (of dubious quality, I admit) for friends and relatives; I continued studying the fundamentals of computer science at the University of Palermo, in Italy; now I work at one of the biggest IT companies in Italy and I learn something new every day.</p>
+      </div>
+      <div class="card-footer">
+        <span class="float-left">September 15, 2019</span>
+        <a
+        href="/posts/welcome/"
+        class="float-right btn btn-outline-info btn-sm"
+        >Read</a
+        >
+      </div>
+    </div>
+  </a>
+</div>
+
+      
+    </div>
+    <div class="paginator">
+      
+
+
+    </div>
+  </div>
+</section>
+
+
+      
+       
+    </div>
+
+    <footer class="container-fluid text-center align-content-center footer pb-2">
+  <div class="container pt-5">
+    <div class="row text-left">
+      <div class="col-md-4 col-sm-12">
+        <h5>Navigation</h5>
+        
+        <ul>
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#about">About</a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#skills">Skills</a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#experiences">Experiences</a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="smooth-scroll" href="/#recent-posts">Recent Posts</a>
+            </li>
+            
+        </ul>
+        
+
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <h5>Contact Me</h5>
+        <ul>
+          
+          <li><span>Email: </span> <span>asirchia@gmail.com</span></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <div class="row text-left">
+      <div class="col-md-4">
+        <a id="theme" href="https://github.com/hossainemruz/toha" target="#">
+          <img src="/assets/images/inverted-logo.png">
+          Toha
+        </a>
+      </div>
+      <div class="col-md-4 text-center">© 2020 Copyright.</div>
+      <div class="col-md-4 text-right">
+        <a id="hugo" href="https://gohugo.io/">Powered by Hugo
+        <img
+          src="/assets/images/hugo-logo-wide.svg"
+          alt="Hugo Logo"
+          height="18"
+        />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/main.js"></script>
+
+
+    
+    
+    <script src="/assets/js/list.js"></script>
+
+  </body>
+</html>
