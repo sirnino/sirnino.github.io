@@ -6,27 +6,27 @@ title = "ISP - Interface Segregation Principle (with examples)"
 [author]
 avatar = ""
 name = "Nino Sirchia"
-+++
 
-The Interface Segretation is a principle postulated by Robert Martin among the **SOLID** Principles 
++++
+The Interface Segretation is a principle postulated by Robert Martin among the **SOLID** Principles
 for Object Oriented software development.
 
 **SOLID** is a mnemonic achronym that stands for:
 
-- **S**ingle Responsibiliy (SRP)
-- **O**pen closed (OCP)
-- **L**iskov Substitution (LSP)
-- **I**nterface Segregation (ISP)
-- **D**ependency Inversion (DIP)
+* **S**ingle Responsibiliy (SRP)
+* **O**pen closed (OCP)
+* **L**iskov Substitution (LSP)
+* **I**nterface Segregation (ISP)
+* **D**ependency Inversion (DIP)
 
 This 5 principles must guide every software developer in wrinting his code. In this article I'll focus on the fourth one.
 
 This is an article of the SOLID Principles serie. Checkout the other articles here:
 
-- [Single Responsibiliy (SRP)](/programming/solid/2020/08/12/solid-srp.html)
-- [Open/Closed (OCP)](/programming/solid/2020/08/13/solid-ocp.html)
-- [Liskov Substitution (LSP)](//programming/solid/2020/08/14/solid-lsp.html)
-- [Dependency Inversion (DIP)](/posts/solid-principles/dip-depencency-inversion-principle-with-examples)
+* [Open closed (SRP)](/posts/solid-principles/single-responsibility-principle)
+* [Open closed (OCP)](/posts/solid-principles/open-closed-principle)
+* [Interface Segregation (LSP)](/posts/solid-principles/liskov-substitution-principle)
+* [Dependency Inversion (DIP)](/posts/solid-principles/dip-depencency-inversion-principle-with-examples)
 
 ## The Interface Segregation Principle
 
@@ -39,9 +39,9 @@ The principle means that each class should expose the minimum set of methods tha
 To make it more clear, let's translate it in code.
 Imagine that you're designing a system that must be integrated with three different clients, written by three different development teams:
 
-- Client 1 that uses only an operation named Op1
-- Client 2 that uses only an operation named Op2
-- Client 3 that uses only an operation named Op3
+* Client 1 that uses only an operation named Op1
+* Client 2 that uses only an operation named Op2
+* Client 3 that uses only an operation named Op3
 
 You could implement all three operations as follow:
 
@@ -78,7 +78,6 @@ You could implement all three operations as follow:
 		
 		//Use of only op3 from ops
 	 }
-
 ```
 
 But this is not an ISP-compliant approach because all the three clients would have the chance to invoke both the op1, op2 and op3 method.
@@ -149,9 +148,8 @@ that will make visible only the methods the client is interested in.
 [**Robert Martin**](https://en.wikipedia.org/wiki/Robert_C._Martin), aka _"Uncle Bob"_ is a coder since 1970 and he's now a world-wide-appreciated software architect, ICT expert and clean code evangelist.
 Together with Martin Fowler, Ken Shwaber and other forteen people, he was also one of the creator of the [Agile Manifesto](https://agilemanifesto.org/) that is now a guideline for many development team all around the world.
 
-
 ## References
 
-- Agile Software Development: Principles, Patterns and Practices - Robert C. Martin
-- The Clean Coder: A Code of Conduct for Professional Programmers - Robert C. Martin
-- Clean architecture - Robert C. Martin
+* Agile Software Development: Principles, Patterns and Practices - Robert C. Martin
+* The Clean Coder: A Code of Conduct for Professional Programmers - Robert C. Martin
+* Clean architecture - Robert C. Martin
