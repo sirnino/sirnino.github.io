@@ -29,7 +29,7 @@ This is an article of the SOLID Principles serie. Checkout the other articles he
 
 ## Dependency Inversion Principle
 
-...
+The dependecy inversion principle says that...
 
 ## About the creator
 
