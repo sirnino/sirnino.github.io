@@ -69,7 +69,7 @@ What if you code a single class that is in charge for both calculate the pay, re
 
 You' would have the following situation
 
-![SRP-1](/res/images/solid/srp-1.png "SRP-1")
+![](/assets/images/srp-1.png)
 
 Here, we would have that every re-compilation of the Employee class due, for example, to a revision to the calcPay method will involve also a recompilation of the reportHours method.
 This is something deprecable because, basing on the revision is done, the other methods could reach an inconsistent state, causing a regression.
@@ -102,7 +102,7 @@ A SRP compliant code is the following:
 	  }
 ```
 
-![SRP-2](/res/images/solid/srp-2.png "SRP-2")
+![](/assets/images/srp-2.png)
 
 Where each actor communicate with a component designed for his own specific purposes.
 
