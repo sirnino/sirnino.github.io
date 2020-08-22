@@ -1,84 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Sirnino</title>
-    <link>https://sirnino.github.io/posts/</link>
-    <description>Recent content in Posts on Sirnino</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>it-it</language>
-    <lastBuildDate>Tue, 18 Aug 2020 18:46:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://sirnino.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>ISP - Interface Segregation Principle (with examples)</title>
-      <link>https://sirnino.github.io/posts/solid-principles/interface-segregation-principle/</link>
-      <pubDate>Tue, 18 Aug 2020 18:46:00 +0000</pubDate>
-      
-      <guid>https://sirnino.github.io/posts/solid-principles/interface-segregation-principle/</guid>
-      <description>The Interface Segretation is a principle postulated by Robert Martin among the SOLID Principles for Object Oriented software development.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Sirnino</title><link>https://sirnino.github.io/posts/</link><description>Recent content in Posts on Sirnino</description><generator>Hugo -- gohugo.io</generator><language>it-it</language><lastBuildDate>Tue, 18 Aug 2020 18:46:00 +0000</lastBuildDate><atom:link href="https://sirnino.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>ISP - Interface Segregation Principle (with examples)</title><link>https://sirnino.github.io/posts/solid-principles/interface-segregation-principle/</link><pubDate>Tue, 18 Aug 2020 18:46:00 +0000</pubDate><guid>https://sirnino.github.io/posts/solid-principles/interface-segregation-principle/</guid><description>The Interface Segretation is a principle postulated by Robert Martin among the SOLID Principles for Object Oriented software development.
 SOLID is a mnemonic achronym that stands for:
- Single Responsibiliy (SRP) Open closed (OCP) Liskov Substitution (LSP) Interface Segregation (ISP) Dependency Inversion (DIP)  This 5 principles must guide every software developer in wrinting his code. In this article I&amp;rsquo;ll focus on the fourth one.
-This is an article of the SOLID Principles serie.</description>
-    </item>
-    
-    <item>
-      <title>LSP - Liskov Substitution Principle (with examples)</title>
-      <link>https://sirnino.github.io/posts/solid-principles/liskov-substitution-principle/</link>
-      <pubDate>Fri, 14 Aug 2020 18:10:00 +0000</pubDate>
-      
-      <guid>https://sirnino.github.io/posts/solid-principles/liskov-substitution-principle/</guid>
-      <description>The Liskov Substitution is a principle postulated by Barbara Liskov and included by Robert Martin among the SOLID Principles for Object Oriented software development.
+Single Responsibiliy (SRP) Open closed (OCP) Liskov Substitution (LSP) Interface Segregation (ISP) Dependency Inversion (DIP) This 5 principles must guide every software developer in wrinting his code. In this article I&amp;rsquo;ll focus on the fourth one.
+This is an article of the SOLID Principles serie.</description></item><item><title>LSP - Liskov Substitution Principle (with examples)</title><link>https://sirnino.github.io/posts/solid-principles/liskov-substitution-principle/</link><pubDate>Fri, 14 Aug 2020 18:10:00 +0000</pubDate><guid>https://sirnino.github.io/posts/solid-principles/liskov-substitution-principle/</guid><description>The Liskov Substitution is a principle postulated by Barbara Liskov and included by Robert Martin among the SOLID Principles for Object Oriented software development.
 SOLID is a mnemonic achronym that stands for:
- Single Responsibiliy (SRP) Open closed (OCP) Liskov Substitution (LSP) Interface Segregation (ISP) Dependency Inversion (DIP)  This 5 principles must guide every software developer in wrinting his code. In this article I&amp;rsquo;ll focus on the third one.</description>
-    </item>
-    
-    <item>
-      <title>OCP - Open/Closed Principle (with examples)</title>
-      <link>https://sirnino.github.io/posts/solid-principles/open-closed-principle/</link>
-      <pubDate>Thu, 13 Aug 2020 15:52:00 +0000</pubDate>
-      
-      <guid>https://sirnino.github.io/posts/solid-principles/open-closed-principle/</guid>
-      <description>The Open/Closed is one of the SOLID Principles postulated by Robert Martin.
+Single Responsibiliy (SRP) Open closed (OCP) Liskov Substitution (LSP) Interface Segregation (ISP) Dependency Inversion (DIP) This 5 principles must guide every software developer in wrinting his code. In this article I&amp;rsquo;ll focus on the third one.</description></item><item><title>OCP - Open/Closed Principle (with examples)</title><link>https://sirnino.github.io/posts/solid-principles/open-closed-principle/</link><pubDate>Thu, 13 Aug 2020 15:52:00 +0000</pubDate><guid>https://sirnino.github.io/posts/solid-principles/open-closed-principle/</guid><description>The Open/Closed is one of the SOLID Principles postulated by Robert Martin.
 SOLID is a mnemonic achronym that stands for:
- Single Responsibiliy (SRP) Open closed (OCP) Liskov Substitution (LSP) Interface Segregation (ISP) Dependency Inversion (DIP)  This 5 principles must guide every software developer in wrinting his code. In this article I&amp;rsquo;ll focus on the second one.
-This is an article of the SOLID Principles serie. Checkout the other articles here:</description>
-    </item>
-    
-    <item>
-      <title>SRP - Single Responsibiliy Principle (with examples)</title>
-      <link>https://sirnino.github.io/posts/solid-principles/single-responsibility-principle/</link>
-      <pubDate>Wed, 12 Aug 2020 16:33:00 +0000</pubDate>
-      
-      <guid>https://sirnino.github.io/posts/solid-principles/single-responsibility-principle/</guid>
-      <description>The Single Responsibiliy is one of the SOLID Principles postulated by Robert Martin.
+Single Responsibiliy (SRP) Open closed (OCP) Liskov Substitution (LSP) Interface Segregation (ISP) Dependency Inversion (DIP) This 5 principles must guide every software developer in wrinting his code. In this article I&amp;rsquo;ll focus on the second one.
+This is an article of the SOLID Principles serie. Checkout the other articles here:</description></item><item><title>SRP - Single Responsibiliy Principle (with examples)</title><link>https://sirnino.github.io/posts/solid-principles/single-responsibility-principle/</link><pubDate>Wed, 12 Aug 2020 16:33:00 +0000</pubDate><guid>https://sirnino.github.io/posts/solid-principles/single-responsibility-principle/</guid><description>The Single Responsibiliy is one of the SOLID Principles postulated by Robert Martin.
 SOLID is a mnemonic achronym that stands for:
- Single Responsibiliy (SRP) Open closed (OCP) Liskov Substitution (LSP) Interface Segregation (ISP) Dependency Inversion (DIP)  This 5 principles must guide every software developer in wrinting his code. In this article I&amp;rsquo;ll focus on the first one.
-This is an article of the SOLID Principles serie. Checkout the other articles here:</description>
-    </item>
-    
-    <item>
-      <title>What is Docker?</title>
-      <link>https://sirnino.github.io/posts/what-is-docker/</link>
-      <pubDate>Sat, 21 Sep 2019 15:38:00 +0000</pubDate>
-      
-      <guid>https://sirnino.github.io/posts/what-is-docker/</guid>
-      <description>Maybe you&amp;rsquo;ve heard about Docker, but maybe you stil do not have much clear what docker is. In this post we will explore such technology and will go through 3 reason why you should definitely consider to migrate toward a docker based release of your software.
+Single Responsibiliy (SRP) Open closed (OCP) Liskov Substitution (LSP) Interface Segregation (ISP) Dependency Inversion (DIP) This 5 principles must guide every software developer in wrinting his code. In this article I&amp;rsquo;ll focus on the first one.
+This is an article of the SOLID Principles serie. Checkout the other articles here:</description></item><item><title>What is Docker?</title><link>https://sirnino.github.io/posts/what-is-docker/</link><pubDate>Sat, 21 Sep 2019 15:38:00 +0000</pubDate><guid>https://sirnino.github.io/posts/what-is-docker/</guid><description>Maybe you&amp;rsquo;ve heard about Docker, but maybe you stil do not have much clear what docker is. In this post we will explore such technology and will go through 3 reason why you should definitely consider to migrate toward a docker based release of your software.
 But let&amp;rsquo;s start from the beginning: the Docker page on Wikipedia says that
- Docker is a set of platform-as-a-service (PaaS) products that use OS-level virtualization to deliver software in packages called containers.</description>
-    </item>
-    
-    <item>
-      <title>Welcome !</title>
-      <link>https://sirnino.github.io/posts/welcome/</link>
-      <pubDate>Sun, 15 Sep 2019 15:38:00 +0000</pubDate>
-      
-      <guid>https://sirnino.github.io/posts/welcome/</guid>
-      <description>Here we are&amp;hellip;
+Docker is a set of platform-as-a-service (PaaS) products that use OS-level virtualization to deliver software in packages called containers.</description></item><item><title>Welcome !</title><link>https://sirnino.github.io/posts/welcome/</link><pubDate>Sun, 15 Sep 2019 15:38:00 +0000</pubDate><guid>https://sirnino.github.io/posts/welcome/</guid><description>Here we are&amp;hellip;
 For passion, for study and for work I have been in the IT field for 15 years. I saw so many technologies borning and dying and, although I am only 30 years old (more or less), I have accumulated some experience in different fields.
-I started as a freelance developer, making websites (of dubious quality, I admit) for friends and relatives; I continued studying the fundamentals of computer science at the University of Palermo, in Italy; now I work at one of the biggest IT companies in Italy and I learn something new every day.</description>
-    </item>
-    
-  </channel>
-</rss>
+I started as a freelance developer, making websites (of dubious quality, I admit) for friends and relatives; I continued studying the fundamentals of computer science at the University of Palermo, in Italy; now I work at one of the biggest IT companies in Italy and I learn something new every day.</description></item></channel></rss>
