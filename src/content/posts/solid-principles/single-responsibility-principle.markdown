@@ -6,30 +6,30 @@ title = "SRP - Single Responsibiliy Principle (with examples)"
 [author]
 avatar = ""
 name = "Nino Sirchia"
-+++
 
++++
 The Single Responsibiliy is one of the **SOLID** Principles postulated by Robert Martin.
 
 **SOLID** is a mnemonic achronym that stands for:
 
-- **S**ingle Responsibiliy (SRP)
-- **O**pen closed (OCP)
-- **L**iskov Substitution (LSP)
-- **I**nterface Segregation (ISP)
-- **D**ependency Inversion (DIP)
+* **S**ingle Responsibiliy (SRP)
+* **O**pen closed (OCP)
+* **L**iskov Substitution (LSP)
+* **I**nterface Segregation (ISP)
+* **D**ependency Inversion (DIP)
 
 This 5 principles must guide every software developer in wrinting his code. In this article I'll focus on the first one.
 
 This is an article of the SOLID Principles serie. Checkout the other articles here:
 
-- [Open closed (OCP)](/programming/solid/2020/08/13/solid-ocp.html)
-- [Liskov Substitution (LSP)](/programming/solid/2020/08/14/solid-lsp.html)
-- [Interface Segregation (ISP)](/programming/solid/2020/08/18/solid-isp.html)
-- [Dependency Inversion (DIP)](/posts/solid-principles/dip-depencency-inversion-principle-with-examples)
+* [Open closed (OCP)](/posts/solid-principles/interface-segregation-principle)
+* [Liskov Substitution (LSP)](/posts/solid-principles/liskov-substitution-principle)
+* [Interface Segregation (ISP)](/posts/solid-principles/interface-segregation-principle)
+* [Dependency Inversion (DIP)](/posts/solid-principles/dip-depencency-inversion-principle-with-examples)
 
 ## The Single Responsibiliy Principle
 
-The Single Responsibiliy Principle says that 
+The Single Responsibiliy Principle says that
 
 > _"A module should have one and only one reason to change"_
 
@@ -42,9 +42,10 @@ And also:
 > _"If a change request come, only one module should be affected"_
 
 Imagine that you're coding a system that has three actors:
-- The Chief Financial Officer (CFO) that uses the system to calculate the pay of each employee;
-- The Chief Operation Officer (COO) that uses the system to report the working hours of each employee;
-- The Chief Technology Officer (CTO) that uses the system to save the monthly data in order to emit the paycheck.
+
+* The Chief Financial Officer (CFO) that uses the system to calculate the pay of each employee;
+* The Chief Operation Officer (COO) that uses the system to report the working hours of each employee;
+* The Chief Technology Officer (CTO) that uses the system to save the monthly data in order to emit the paycheck.
 
 What if you code a single class that is in charge for both calculate the pay, report the working hours and save the monthly data?
 
@@ -105,13 +106,12 @@ A SRP compliant code is the following:
 
 Where each actor communicate with a component designed for his own specific purposes.
 
-If a revision of the calcPay method is requested, there is no way to affect the HourReporter or DataSaver modules because, now, they are totally decoupled. 
+If a revision of the calcPay method is requested, there is no way to affect the HourReporter or DataSaver modules because, now, they are totally decoupled.
 
 Other benefits of this approach are:
 
-- **Testability**: Each module is easily testable without interferences;
-- **Maintainability**: The modules are more lightweight and have also a lower cognitive complexity then a big monolithic module.
-
+* **Testability**: Each module is easily testable without interferences;
+* **Maintainability**: The modules are more lightweight and have also a lower cognitive complexity then a big monolithic module.
 
 ## About the creator
 
@@ -119,9 +119,8 @@ The SOLID principles were postulated by Robert Martin nei primi anni 2000.
 [**Robert Martin**](https://en.wikipedia.org/wiki/Robert_C._Martin), aka _"Uncle Bob"_ is a coder since 1970 and he's now a world-wide-appreciated software architect, ICT expert and clean code evangelist.
 Together with Martin Fowler, Ken Shwaber and other forteen people, he was also one of the creator of the [Agile Manifesto](https://agilemanifesto.org/) that is now a guideline for many development team all around the world.
 
-
 ## References
 
-- Agile Software Development: Principles, Patterns and Practices - Robert C. Martin
-- The Clean Coder: A Code of Conduct for Professional Programmers - Robert C. Martin
-- Clean architecture - Robert C. Martin
+* Agile Software Development: Principles, Patterns and Practices - Robert C. Martin
+* The Clean Coder: A Code of Conduct for Professional Programmers - Robert C. Martin
+* Clean architecture - Robert C. Martin
