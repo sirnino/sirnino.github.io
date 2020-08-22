@@ -6,30 +6,30 @@ title = "OCP - Open/Closed Principle (with examples)"
 [author]
 avatar = ""
 name = "Nino Sirchia"
-+++
 
++++
 The Open/Closed is one of the **SOLID** Principles postulated by Robert Martin.
 
 **SOLID** is a mnemonic achronym that stands for:
 
-- **S**ingle Responsibiliy (SRP)
-- **O**pen closed (OCP)
-- **L**iskov Substitution (LSP)
-- **I**nterface Segregation (ISP)
-- **D**ependency Inversion (DIP)
+* **S**ingle Responsibiliy (SRP)
+* **O**pen closed (OCP)
+* **L**iskov Substitution (LSP)
+* **I**nterface Segregation (ISP)
+* **D**ependency Inversion (DIP)
 
 This 5 principles must guide every software developer in wrinting his code. In this article I'll focus on the second one.
 
 This is an article of the SOLID Principles serie. Checkout the other articles here:
 
-- [Single Responsibiliy (SRP)](/programming/solid/2020/08/12/solid-srp.html)
-- [Liskov Substitution (LSP)](/programming/solid/2020/08/14/solid-lsp.html)
-- [Interface Segregation (ISP)](/programming/solid/2020/08/18/solid-isp.html)
-- [Dependency Inversion (DIP)](/posts/solid-principles/dip-depencency-inversion-principle-with-examples)
+* [Single Responsibility (SRP)](/posts/solid-principles/single-responsibility-principle)
+* [Liskov Substitution (LSP)](/posts/solid-principles/liskov-substitution-principle)
+* [Interface Segregation (ISP)](/posts/solid-principles/interface-segregation-principle)
+* [Dependency Inversion (DIP)](/posts/solid-principles/dip-depencency-inversion-principle-with-examples)
 
 ## The Open/Closed Principle
 
-The Open/Closed Principle says that 
+The Open/Closed Principle says that
 
 > _"A module should be Open to extension and closed to modification"_
 
@@ -75,7 +75,7 @@ You could address this requirement by writing the code as follows:
 This code works fine, but it's far from being a good code. Why? Imagine that one week after the releas in production, the customer comes to you
 with a change request saying: _Change the current behavior of the system in order to produce a PDF file in place of the Excel._
 
-What you need to do? You should **change** the _writeToExcel_ method, easy.  Yes easy... but keep in mind a "mantra": 
+What you need to do? You should **change** the _writeToExcel_ method, easy.  Yes easy... but keep in mind a "mantra":
 
 > Everytime you change something in your code, you are prone to regressions and bug generation.
 
@@ -125,7 +125,7 @@ A more OCP compliant code for the scenario is the following:
 		
 	 }
 ```
-	  
+
 With this approach, when a we will need to produce a PDF in place of the Excel, we have only to **extend** the code with a new implementation of a DataSerializer:
 
 ```java
@@ -148,16 +148,14 @@ And use this in the DataSerializationService:
 The code above, has still room for further improvements. For example, both the `manipulate` and the `getDataFromDB` methods should be supplied to the
 `DataSerializationService` as specific implementations of other two interfaces.
 
-
 ## About the creator
 
 The SOLID principles were postulated by Robert Martin nei primi anni 2000.
 [**Robert Martin**](https://en.wikipedia.org/wiki/Robert_C._Martin), aka _"Uncle Bob"_ is a coder since 1970 and he's now a world-wide-appreciated software architect, ICT expert and clean code evangelist.
 Together with Martin Fowler, Ken Shwaber and other forteen people, he was also one of the creator of the [Agile Manifesto](https://agilemanifesto.org/) that is now a guideline for many development team all around the world.
 
-
 ## References
 
-- Agile Software Development: Principles, Patterns and Practices - Robert C. Martin
-- The Clean Coder: A Code of Conduct for Professional Programmers - Robert C. Martin
-- Clean architecture - Robert C. Martin
+* Agile Software Development: Principles, Patterns and Practices - Robert C. Martin
+* The Clean Coder: A Code of Conduct for Professional Programmers - Robert C. Martin
+* Clean architecture - Robert C. Martin
