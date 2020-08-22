@@ -6,27 +6,27 @@ title = "LSP - Liskov Substitution Principle (with examples)"
 [author]
 avatar = ""
 name = "Nino Sirchia"
-
 +++
-The Liskov Substitution is a principle postulated by Barbara Liskov and included by Robert Martin among the **SOLID** Principles
+
+The Liskov Substitution is a principle postulated by Barbara Liskov and included by Robert Martin among the **SOLID** Principles 
 for Object Oriented software development.
 
 **SOLID** is a mnemonic achronym that stands for:
 
-* **S**ingle Responsibiliy (SRP)
-* **O**pen closed (OCP)
-* **L**iskov Substitution (LSP)
-* **I**nterface Segregation (ISP)
-* **D**ependency Inversion (DIP)
+- **S**ingle Responsibiliy (SRP)
+- **O**pen closed (OCP)
+- **L**iskov Substitution (LSP)
+- **I**nterface Segregation (ISP)
+- **D**ependency Inversion (DIP)
 
 This 5 principles must guide every software developer in wrinting his code. In this article I'll focus on the third one.
 
 This is an article of the SOLID Principles serie. Checkout the other articles here:
 
-* [Open closed (SRP)](/posts/solid-principles/single-responsibility-principle)
-* [Open closed (OCP)](/posts/solid-principles/open-closed-principle)
-* [Interface Segregation (ISP)](/posts/solid-principles/interface-segregation-principle)
-* [Dependency Inversion (DIP)](/posts/solid-principles/dip-depencency-inversion-principle-with-examples)
+- [Single Responsibiliy (SRP)](/programming/solid/2020/08/12/solid-srp.html)
+- [Open/Closed (OCP)](/programming/solid/2020/08/13/solid-ocp.html)
+- [Interface Segregation (ISP)](/programming/solid/2020/08/18/solid-isp.html)
+- [Dependency Inversion (DIP)](/posts/solid-principles/dip-depencency-inversion-principle-with-examples)
 
 ## The Liskov Substitution Principle
 
@@ -181,7 +181,7 @@ In order to obtain such a goal, we should customize the `saveMessage` code to so
 			
 		//Save on disk code
 	}
-```
+```	
 
 Ok but what if tomorrow a new subtype of `Message` comes? Let's imagine an `Email` class:
 
@@ -198,7 +198,7 @@ Ok but what if tomorrow a new subtype of `Message` comes? Let's imagine an `Emai
 	}
 ```
 
-another if statement should be added to the `saveMessage` method in order to deal with this new kind of Object, and so on and so forth for any other
+another if statement should be added to the `saveMessage` method in order to deal with this new kind of Object, and so on and so forth for any other 
 new extension of `Message`. This is absolutely poor code, hard to read, hard to mantain and error prone.
 
 What the LSP recommend, between the lines, is to arrange a well defined extension hierarchy that makes the code robust, easy to read and mantain.
@@ -217,8 +217,9 @@ In 2008 she won the Turing award for her contribution in the Object Oriented Pro
 [**Robert Martin**](https://en.wikipedia.org/wiki/Robert_C._Martin), aka _"Uncle Bob"_ is a coder since 1970 and he's now a world-wide-appreciated software architect, ICT expert and clean code evangelist.
 Together with Martin Fowler, Ken Shwaber and other forteen people, he was also one of the creator of the [Agile Manifesto](https://agilemanifesto.org/) that is now a guideline for many development team all around the world.
 
+
 ## References
 
-* Agile Software Development: Principles, Patterns and Practices - Robert C. Martin
-* The Clean Coder: A Code of Conduct for Professional Programmers - Robert C. Martin
-* Clean architecture - Robert C. Martin
+- Agile Software Development: Principles, Patterns and Practices - Robert C. Martin
+- The Clean Coder: A Code of Conduct for Professional Programmers - Robert C. Martin
+- Clean architecture - Robert C. Martin
