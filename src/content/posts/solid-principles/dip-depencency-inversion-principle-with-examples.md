@@ -23,9 +23,9 @@ This 5 principles must guide every software developer in wrinting his code. In t
 This is an article of the SOLID Principles serie. Checkout the other articles here:
 
 * [Single Responsibiliy (SRP)](/posts/solid-principles/single-responsibility-principle)
-* [Open/Closed (OCP)](/programming/solid/2020/08/13/solid-ocp.html)
-* [Liskov Substitution (LSP)](//programming/solid/2020/08/14/solid-lsp.html)
-* [Interface Segregation (ISP)](//programming/solid/2020/08/14/solid-isp.html)
+* [Open/Closed (OCP)](/posts/solid-principles/open-closed-principle)
+* [Liskov Substitution (LSP)](/posts/solid-principles/liskov-substitution-principle)
+* [Interface Segregation (ISP)](/posts/solid-principles/interface-segregation-principle)
 
 ## Dependency Inversion Principle
 
