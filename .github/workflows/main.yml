@@ -1,0 +1,26 @@
+name: CI
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+
+      - name: Setup hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.68.3"
+
+      - name: Build
+        run: src/hugo --minify -d .
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.TOKEN }}
+          external_repository: sirnino/sirnino.github.io
+          publish_dir: ./
+          user_name: sirnino
+          user_email: asirchia@gmail.com
+          publish_branch: master
