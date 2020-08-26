@@ -35,6 +35,8 @@ The dependecy inversion principle says that
 >
 > Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
 
+Let's do an example to better explain it.
+
 ## About the creator
 
 [**Robert Martin**](https://en.wikipedia.org/wiki/Robert_C._Martin), aka _"Uncle Bob"_ is a coder since 1970 and he's now a world-wide-appreciated software architect, ICT expert and clean code evangelist. Together with Martin Fowler, Ken Shwaber and other forteen people, he was also one of the creator of the [Agile Manifesto](https://agilemanifesto.org/) that is now a guideline for many development team all around the world.
