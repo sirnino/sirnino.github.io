@@ -37,6 +37,80 @@ The dependecy inversion principle says that
 
 Let's do an example to better explain it.
 
+Imagine to design a software with the following class diagram:
+
+![](/assets/images/dip-1.png)
+
+The main App uses directly the ExcelExporter class as follows:
+
+    public class App {
+    	private ExcelExporter exporter = new ExcelExporter();
+        
+        public File export(){
+        	return exporter.toFile();
+        }
+    }
+
+Here we have that the high-level module (App class) depends on low-level component (ExcelExporter class).
+
+The problem is that if we need to produce a different File (e.g. a PDF file instead of an Excel) we have to modify the code of the App as follows:
+
+    public class App {
+    	private PDFExporter exporter = new PDFExporter();
+        
+        public File export(){ 
+        	return exporter.toFile();  
+        } 
+    }
+
+As we've already seen, this is not compliant with the Open-Closed Principle and is hard to maintain. 
+
+A better design adopts the Dependency Inversion as follows:
+
+![](/assets/images/dip-2.png)
+
+Here the inversion of the dependency is quite visible: both the ExcelExporter and PDFExporter depends on the abstract module _Exporter_. 
+
+The corresponding code is:
+
+    public interface Exporter {
+    	public File toFile();
+    }
+    
+    public class ExcelExporter implements Exporter {
+    	public File toFile(){
+        	//Arrange contents in Excel File
+        }
+    }
+    
+    public class PDFExporter implements Exporter {
+    	public File toFile(){
+        	//Arrange contents in PDF File
+        }
+    }
+    
+    public class App{
+    	private Exporter exporter;
+        
+        public App(Exporter exporter){
+        	this.exporter = exporter;
+        }
+        
+        public File export(){ 
+        	return exporter.toFile();  
+        } 
+    }
+
+The specific exporter implementation can be provided through the constructor as follows:
+
+    App app = new App(new ExcelExporter());
+
+or
+
+    App app = new App(new PDFExporter());
+
+leaving the App class agnostic about the specific implementation used at runtime.
+
 ## About the creator
 
 [**Robert Martin**](https://en.wikipedia.org/wiki/Robert_C._Martin), aka _"Uncle Bob"_ is a coder since 1970 and he's now a world-wide-appreciated software architect, ICT expert and clean code evangelist. Together with Martin Fowler, Ken Shwaber and other forteen people, he was also one of the creator of the [Agile Manifesto](https://agilemanifesto.org/) that is now a guideline for many development team all around the world.
