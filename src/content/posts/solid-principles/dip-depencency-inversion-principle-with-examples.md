@@ -139,7 +139,7 @@ This approach uses a property file containing the complete classname of the impl
 
     exporter.impl.class=io.github.sirnino.ExcelExporter
 
-Through Java reflection the developer can dynamically instantiate a 
+Through Java reflection the developer can dynamically instantiate a
 
     public class App{
     	private Exporter exporter;
