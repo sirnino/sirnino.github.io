@@ -29,7 +29,11 @@ This is an article of the SOLID Principles serie. Checkout the other articles he
 
 ## Dependency Inversion Principle
 
-The dependecy inversion principle says that...
+The dependecy inversion principle says that
+
+> High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g. interfaces).
+>
+> Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
 
 ## About the creator
 
