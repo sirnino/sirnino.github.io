@@ -63,13 +63,13 @@ The problem is that if we need to produce a different File (e.g. a PDF file inst
         } 
     }
 
-As we've already seen, this is not compliant with the Open-Closed Principle and is hard to maintain. 
+As we've already seen, this is not compliant with the Open-Closed Principle and is hard to maintain.
 
 A better design adopts the Dependency Inversion as follows:
 
 ![](/assets/images/dip-2.png)
 
-Here the inversion of the dependency is quite visible: both the ExcelExporter and PDFExporter depends on the abstract module _Exporter_. 
+Here the inversion of the dependency is quite visible: both the ExcelExporter and PDFExporter depends on the abstract module _Exporter_.
 
 The corresponding code is:
 
@@ -111,7 +111,78 @@ or
 
 leaving the App class agnostic about the specific implementation used at runtime.
 
-The usage of the constructor for the injection of the dependency is just an example, other approaches can be adopted; for example the Factory pattern or Java Reflection.
+The usage of the constructor for the injection of the dependency is just an example, other approaches can be adopted; for example the Factory class or Java Reflection or both of them.
+
+### Dependency injection through Factory class
+
+    public class ExporterFactory{
+    	public static Exporter getExporter(){
+        	return new ExcelExporter();
+        }
+    }
+    
+    public class App{
+    	private Exporter exporter;
+        
+        public App(){
+        	this.exporter = ExporterFactory.getExporter();
+        }
+        
+        public File export(){ 
+        	return exporter.toFile();  
+        } 
+    }
+
+### Dependency injection through Java Reflection
+
+This approach uses a property file containing the complete classname of the implementation to use.
+
+    exporter.impl.class=io.github.sirnino.ExcelExporter
+
+Through Java reflection the developer can dynamically instantiate a 
+
+    public class App{
+    	private Exporter exporter;
+        
+        public App(){
+        	String classname = Property.get("exporter.impl.class");
+            Class<Exporter> clazz = Class.getInstanceFor(classname);
+        	this.exporter = clazz.getInstance();
+        }
+        
+        public File export(){ 
+        	return exporter.toFile();  
+        } 
+    
+    }
+
+### Dependency Injection through Factory class and Java Reflection
+
+A more SRP-compliant approach is the following:
+
+    exporter.impl.class=io.github.sirnino.ExcelExporter
+
+    public class ExporterFactory{
+    	public static Exporter getExporter(){
+        	String classname = Property.get("exporter.impl.class");
+            Class<Exporter> clazz = Class.getInstanceFor(classname);
+        	this.exporter = clazz.getInstance();
+        }
+    }
+    
+    public class App{
+    	private Exporter exporter;
+        
+        public App(){
+        	this.exporter = ExporterFactory.getExporter();
+        }
+        
+        public File export(){ 
+        	return exporter.toFile();  
+        } 
+    }
+
+Here the business logic for the object allocation is delegated to the Factory class that uses the Java Reflection for obtaining the reference to which class it must create an instance of.
 
 ## About the creator
 
