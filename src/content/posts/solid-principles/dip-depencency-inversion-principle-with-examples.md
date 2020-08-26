@@ -111,6 +111,8 @@ or
 
 leaving the App class agnostic about the specific implementation used at runtime.
 
+The usage of the constructor for the injection of the dependency is just an example, other approaches can be adopted; for example the Factory pattern or Java Reflection.
+
 ## About the creator
 
 [**Robert Martin**](https://en.wikipedia.org/wiki/Robert_C._Martin), aka _"Uncle Bob"_ is a coder since 1970 and he's now a world-wide-appreciated software architect, ICT expert and clean code evangelist. Together with Martin Fowler, Ken Shwaber and other forteen people, he was also one of the creator of the [Agile Manifesto](https://agilemanifesto.org/) that is now a guideline for many development team all around the world.
