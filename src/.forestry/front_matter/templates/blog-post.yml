@@ -52,3 +52,5 @@ fields:
     maxSize: 64
   label: hero
   default: "/uploads/default-hero.jpg"
+pages:
+- src/content/posts/top-5-design-pattern-every-programmer-should-know-and-use.md
