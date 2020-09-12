@@ -9,6 +9,10 @@ avatar = "/uploads/default-avatar.png"
 name = "Nino Sirchia"
 
 +++
+What is a design pattern?
+
+Why should I use a design pattern?
+
 # 1. Singleton
 
 The Singleton pattern is a creational design pattern...
