@@ -9,26 +9,8 @@ avatar = "/uploads/default-avatar.png"
 name = "Nino Sirchia"
 
 +++
-What is a design pattern?
-
-Why should I use a design pattern?
-
-# 1. Singleton
-
-The Singleton pattern is a creational design pattern...
-
-# 2. Factory
-
-The Factory pattern is also a creational design pattern...
-
-# 3. Observer
-
-The Observer pattern is a Behavioral design pattern...
-
-# 4. Facade
-
-The Facade pattern is an architectural design pattern...
-
-# 5. Lazy Loading
-
-The Lazy Loading pattern is a Performance design pattern...
+1. Singleton (Creational)
+2. Factory (Creational)
+3. Observer (Behavioral)
+4. Facade (Architectural)
+5. Lazy Loading (Performance)
