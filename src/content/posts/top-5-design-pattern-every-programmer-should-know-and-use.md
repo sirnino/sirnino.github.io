@@ -26,6 +26,12 @@ Using a design pattern ensures that side effects won't happen during the develop
 
 The Singleton pattern is a creational design pattern that allows to make sure that only one instance of a certain class is created during the software lifecycle.
 
+A class that must be a Singleton has 3 main requirements:
+
+* must have a **private constructor**
+* must have a private static field that is an **instance of itself**
+* must have a **getInstance** static method that, in a thread safe way, provides the unique instance
+
     package io.github.sirnino;
     
     public class MySingleton {
