@@ -79,7 +79,7 @@ The output, as expected, is something like:
 
 # 2. Factory
 
-The Factory pattern is a design pattern that allows to **encapsulate the object instantiation logic in a single point**: the Factory Class. This ensures to avoid having "new" keyword scattered all around the codebase and to have a more mantainable code.
+The Factory pattern is a creational design pattern that allows to **encapsulate the object instantiation logic in a single point**: the Factory Class. This ensures to avoid having "new" keyword scattered all around the codebase and to have a more mantainable code.
 
 The keypoints to properly implement such a pattern are:
 
@@ -159,7 +159,7 @@ The Output of this code is the following:
     Student
     Engineer
 
-# 3. Strategy (Behavioral)
+# 3. Strategy
 
 # 4. Observer (Behavioral)
 
