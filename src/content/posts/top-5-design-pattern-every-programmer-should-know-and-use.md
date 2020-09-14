@@ -9,9 +9,18 @@ avatar = "/uploads/default-avatar.png"
 name = "Nino Sirchia"
 
 +++
-1. Singleton (Creational)
-2. Factory (Creational)
-3. Strategy (Behavioral)
-4. Observer (Behavioral)
-5. Facade (Architectural)
-6. Lazy Loading (Performance)
+# What is a design pattern?
+
+# Why to use a design pattern?
+
+# 1. Singleton (Creational)
+
+# 2. Factory (Creational)
+
+# 3. Strategy (Behavioral)
+
+# 4. Observer (Behavioral)
+
+# 5. Facade (Architectural)
+
+# 6. Lazy Loading (Performance)
