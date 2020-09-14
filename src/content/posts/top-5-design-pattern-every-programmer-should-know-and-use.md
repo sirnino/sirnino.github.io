@@ -24,13 +24,15 @@ Using a design pattern ensures that side effects won't happen during the develop
 
 # 1. Singleton
 
-The Singleton pattern is a creational design pattern that allows to make sure that only one instance of a certain class is created during the software lifecycle.
+The Singleton pattern is a creational design pattern that allows to make sure that only one instance of a certain class is created during the software lifecycle. This is required for example for database connections, http clients, etc...
 
-A class that must be a Singleton has 3 main requirements:
+In order to be a good Singleton, a class must follow 3 main requirements:
 
 * must have a **private constructor**
 * must have a private static field that is an **instance of itself**
 * must have a **getInstance** static method that, in a thread safe way, provides the unique instance
+
+The following is an example of Singleton class.
 
     package io.github.sirnino;
     
@@ -39,7 +41,7 @@ A class that must be a Singleton has 3 main requirements:
     	private static MySingleton instance;
     	
     	private MySingleton() {
-    		//Do your construction stuff
+            //Do your construction stuff. Nothing in this example
     	}
     	
     	public static MySingleton getInstance() {
@@ -58,8 +60,25 @@ A class that must be a Singleton has 3 main requirements:
     	public void dump() {
     		System.out.println(this);
     	}
-    
     }
+
+Here is also the code for the main:
+
+    	public static void main(String[] args) {
+    		MySingleton inst1 = MySingleton.getInstance();
+    		inst1.dump();
+    		
+    		MySingleton inst2 = MySingleton.getInstance();
+    		inst2.dump();
+            
+            System.out.println(inst1.equals(inst2));
+    	}
+
+The output, as expected, is something like:
+
+    io.github.sirnino.MySingleton@7852e922
+    io.github.sirnino.MySingleton@7852e922
+    true
 
 # 2. Factory (Creational)
 
