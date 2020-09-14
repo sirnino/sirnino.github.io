@@ -11,6 +11,7 @@ name = "Nino Sirchia"
 +++
 1. Singleton (Creational)
 2. Factory (Creational)
-3. Observer (Behavioral)
-4. Facade (Architectural)
-5. Lazy Loading (Performance)
+3. Strategy (Behavioral)
+4. Observer (Behavioral)
+5. Facade (Architectural)
+6. Lazy Loading (Performance)
