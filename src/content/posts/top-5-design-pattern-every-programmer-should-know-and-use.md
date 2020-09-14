@@ -11,6 +11,11 @@ name = "Nino Sirchia"
 +++
 # What is a design pattern?
 
+  
+Every developer, sooner or later, is faced with frequent problems for which someone else, on the basis of various experiences, has defined a solution universally recognized as "the best one".
+
+A design pattern is an abstraction of a solution to a frequent problem in software development.
+
 # Why to use a design pattern?
 
 # 1. Singleton (Creational)
