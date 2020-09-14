@@ -14,7 +14,7 @@ name = "Nino Sirchia"
   
 Every developer, sooner or later, is faced with frequent problems for which someone else, on the basis of various experiences, has defined a solution universally recognized as "the best one".
 
-A design pattern is an abstraction of the best solution to a frequent problem in software development.
+**A design pattern is an abstraction of the best solution to a frequent problem in software development**.
 
 # Why to use a design pattern?
 
