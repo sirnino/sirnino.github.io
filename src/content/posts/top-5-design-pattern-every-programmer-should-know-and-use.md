@@ -11,7 +11,6 @@ name = "Nino Sirchia"
 +++
 # What is a design pattern?
 
-  
 Every developer, sooner or later, is faced with frequent problems for which someone else, on the basis of various experiences, has defined a solution universally recognized as "the best one".
 
 **A design pattern is an abstraction of the best solution to a frequent problem in software development**.
@@ -34,8 +33,6 @@ In order to be a good Singleton, a class must follow 3 main requirements:
 
 The following is an example of Singleton class.
 
-    package io.github.sirnino;
-    
     public class MySingleton {
     	
     	private static MySingleton instance;
@@ -80,7 +77,87 @@ The output, as expected, is something like:
     io.github.sirnino.MySingleton@7852e922
     true
 
-# 2. Factory (Creational)
+# 2. Factory
+
+The Factory pattern is a design pattern that allows to **encapsulate the object instantiation logic in a single point**: the Factory Class. This ensures to avoid having "new" keyword scattered all around the codebase and to have a more mantainable code.
+
+The keypoints to properly implement such a pattern are:
+
+* a Factory Class that creates the objects
+* an enumeration that can be used as keyword to decide which kind of object the Factory should allocate
+
+Here is an example.
+
+    public interface Person {
+    	public String getWork();	
+    }
+    
+    public enum PersonType {
+    	STUDENT,
+    	EMPLOYEE;
+    }
+    
+    public class Employee implements Person{
+    
+    	private static final String DESCRIPTION = "Engineer";
+    	
+    	@Override
+    	public String getWork() {
+    		return DESCRIPTION;
+    	}
+    
+    }
+    
+    public class Student implements Person{
+    
+    	private static final String DESCRIPTION = "Student";
+    	
+    	@Override
+    	public String getWork() {
+    		return DESCRIPTION;
+    	}
+    
+    }
+    
+
+The Factory class could be something like the following:
+
+    public class MyFactory {
+    
+    	public static Person getPerson(PersonType type) {
+    		Person ret;
+    		switch(type) {
+    			case STUDENT:
+    				ret = new Student();
+    				break;
+    			case EMPLOYEE:
+    				ret = new Employee();
+    				break;
+    			default:
+    				throw new RuntimeException("Unknown type "+type);
+    		}
+    		
+    		return ret;
+    	}
+    
+    }
+
+It can be used as follows:
+
+    	public static void main(String[] args) {
+    		
+    		Person p1 = MyFactory.getPerson(PersonType.STUDENT);
+    		System.out.println(p1.getWork());
+    		
+    		Person p2 = MyFactory.getPerson(PersonType.EMPLOYEE);
+    		System.out.println(p2.getWork());
+    		
+    	}
+
+The Output of this code is the following:
+
+    Student
+    Engineer
 
 # 3. Strategy (Behavioral)
 
