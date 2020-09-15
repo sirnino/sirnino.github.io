@@ -160,7 +160,7 @@ The Output of this code is the following:
 
 # 3. Strategy
 
-The Strategy pattern is a behavioral design pattern that allows to scaffold a certain algorithm and provide the specific implementation at runtime.
+The Strategy pattern is a behavioral design pattern that allows to **scaffold a certain algorithm and provide the specific implementation at runtime**.
 
 This allows to make the implementation of a algorithms family interchangable.
 
@@ -290,7 +290,105 @@ The output of this example is the following:
     Do Nothing
     Send them via HTTP
 
-# 4. Observer (Behavioral)
+# 4. Observer
+
+The Observer pattern is a behavioral design pattern that allows to **decouple events handling from the main program**.
+
+Imagine having a main program that triggers many events, e.g. data insertion in DB, and the program must be **reactive** to these events. The observer is the perfect pattern for this use cases
+
+The keypoints to properly implement such a pattern are:
+
+* an interface that define a common signature for all the observers
+* a class, acting as event emitter, that loops through all the observers in order to notify them
+
+Here is an example:
+
+* the Observer interface defines the signature for the _react_ method
+
+    public interface Observer {
+    	
+    	public void react();
+    
+    }
+
+* a set of classes that implements such an interface
+
+    public class Notifier implements Observer {
+    
+    	@Override
+    	public void react() {
+    		System.out.println("Notify 3rd party application via HTTP");
+    	}
+    
+    }
+    
+    public class Logger implements Observer {
+    
+    	@Override
+    	public void react() {
+    		System.out.println("Log event on central log server");
+    	}
+    
+    }
+    
+    public class Validator implements Observer {
+    
+    	@Override
+    	public void react() {
+    		System.out.println("Validate the submitted data");
+    	}
+    
+    }
+
+* a class acting as event emitter
+
+    import java.util.ArrayList;
+    import java.util.List;
+    
+    public class DataHandler {
+    	
+    	private List<Observer> observers = new ArrayList<>();
+    	
+    	public void addObserver(Observer obs) {
+    	    observers.add(obs);
+    	}
+    
+    	public void removeObserver(Observer obs) {
+    		observers.remove(obs);
+    	}
+    	
+    	public void saveData(int data) {
+    		
+    		System.out.println("Data "+data+" saved correctly");
+    		
+    		notifyObservers();
+    	}
+    	
+    	public void notifyObservers() {
+    		observers.forEach(Observer::react);
+    	}
+    
+    }
+
+* the main program has only to register the observers and trigger the event
+
+    	public static void main(String[] args) {
+    		DataHandler dh = new DataHandler();
+    		
+    		dh.addObserver(new Validator());
+    		dh.addObserver(new Notifier());
+    		dh.addObserver(new Logger());
+    		
+    		dh.saveData(1);
+    		System.out.println("=====");
+    		
+    		dh.saveData(2);
+    		System.out.println("=====");
+    		
+    		dh.saveData(3);
+    		System.out.println("=====");
+    
+    	}
 
 # 5. Facade (Architectural)
 
