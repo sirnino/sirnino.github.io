@@ -118,7 +118,6 @@ Here is an example.
     	}
     
     }
-    
 
 The Factory class could be something like the following:
 
@@ -160,6 +159,136 @@ The Output of this code is the following:
     Engineer
 
 # 3. Strategy
+
+The Strategy pattern is a behavioral design pattern that allows to scaffold a certain algorithm and provide the specific implementation at runtime.
+
+This allows to make the implementation of a algorithms family interchangable.
+
+The keypoints to properly implement such a pattern are:
+
+* an interface that allows to abstract the steps of the algorithm
+* a constructor that receives the desired interface implementation
+
+Here is an example:
+
+* an interface that defines the steps of the process
+
+    public interface MyProcess {
+    	
+    	public void extract();
+    	
+    	public void transform();
+    	
+    	public void load();
+    
+    }
+    
+
+* a set of interchangable implementations of the interface
+
+    public class ProcessOne implements MyProcess {
+    
+    	@Override
+    	public void extract() {
+    		System.out.println("Get data via HTTP");
+    	}
+    
+    	@Override
+    	public void transform() {
+    		System.out.println("Convert them in XML");
+    	}
+    
+    	@Override
+    	public void load() {
+    		System.out.println("Save them into Postgres Database");
+    	}
+    
+    }
+    
+    public class ProcessTwo implements MyProcess {
+    
+    	@Override
+    	public void extract() {
+    		System.out.println("Get data via FTP");
+    	}
+    
+    	@Override
+    	public void transform() {
+    		System.out.println("Convert them in CSV");
+    	}
+    
+    	@Override
+    	public void load() {
+    		System.out.println("Save them into MongoDB Database");
+    	}
+    
+    }
+    
+    public class ProcessThree implements MyProcess {
+    
+    	@Override
+    	public void extract() {
+    		System.out.println("Get data from MySQL");
+    	}
+    
+    	@Override
+    	public void transform() {
+    		System.out.println("Do Nothing");
+    	}
+    
+    	@Override
+    	public void load() {
+    		System.out.println("Send them via HTTP");
+    	}
+    
+    }
+
+* a processor class that receives in the constructor the interface implementation to use
+
+    public class Processor {
+    	
+    	private MyProcess proc;
+    	
+    	public Processor(MyProcess processToExecute) {
+    		this.proc = processToExecute;
+    	}
+    		
+    	public void run() {
+    		proc.extract();
+    		proc.transform();
+    		proc.load();
+    	}
+    
+    }
+
+* the main program that uses the processor
+
+    	public static void main(String[] args) {
+    		
+    		Processor processor1 = new Processor(new ProcessOne());
+    		processor1.run();
+    		
+    		Processor processor2 = new Processor(new ProcessTwo());
+    		processor2.run();
+    		
+    		Processor processor3 = new Processor(new ProcessThree());
+    		processor3.run();
+    		
+    	}
+
+The output of this example is the following:
+
+    Get data via HTTP
+    Convert them in XML
+    Save them into Postgres Database
+    
+    Get data via FTP
+    Convert them in CSV
+    Save them into MongoDB Database
+    
+    Get data from MySQL
+    Do Nothing
+    Send them via HTTP
 
 # 4. Observer (Behavioral)
 
