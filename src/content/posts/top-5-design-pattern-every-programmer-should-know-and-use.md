@@ -413,4 +413,6 @@ Following a design pattern is the best way possible you have to solve a problem 
 
 The upmentioned design pattern are a must-know set of development pattern; but knowing them is not enough! Using design pattern is the keypoint that makes the difference between a wretched software (even if working) and a excellent software.
 
-All the code shown in this post is availabe on github.
+My recommendation is to spend effort in challenging yourself using one Design Pattern at a time, day by day... Until their usage will be natural in your software design process.
+
+All the code shown in this post is availabe here on github.
