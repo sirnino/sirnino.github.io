@@ -9,6 +9,19 @@ avatar = "/uploads/default-avatar.png"
 name = "Nino Sirchia"
 
 +++
+# TLDR
+
+Following a design pattern is the best way possible you have to solve a problem without undesired side effects.
+
+There are a lot of design patterns for many different purposes. But the top 5, in my opinion, is the following one:
+
+1. Singleton (Creational Pattern)
+2. Factory (Creational Pattern)
+3. Strategy (Behavioral Pattern)
+4. Observer (Behavioral Pattern)
+5. Facade (Architectural Pattern)
+6. Lazy Loading (Performance Pattern)
+
 # What is a design pattern?
 
 Every developer, sooner or later, is faced with frequent problems for which someone else, on the basis of various experiences, has defined a solution universally recognized as "the best one".
