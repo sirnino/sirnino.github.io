@@ -9,7 +9,7 @@ avatar = "/uploads/default-avatar.png"
 name = "Nino Sirchia"
 
 +++
-# TLDR
+# TL;DR
 
 Following a design pattern is the best way possible you have to solve a problem without undesired side effects.
 
@@ -406,3 +406,11 @@ Here is an example:
 # 5. Facade (Architectural)
 
 # 6. Lazy Loading (Performance)
+
+# Conclusion
+
+Following a design pattern is the best way possible you have to solve a problem without undesired side effects.
+
+The upmentioned design pattern are a must-know set of development pattern; but knowing them is not enough! Using design pattern is the keypoint that makes the difference between a wretched software (even if working) and a excellent software.
+
+All the code shown in this post is availabe on github.
