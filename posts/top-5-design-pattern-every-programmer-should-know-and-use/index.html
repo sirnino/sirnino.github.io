@@ -100,26 +100,32 @@ public class Student implements Person{
     }
 </code></pre><p>The Output of this code is the following:</p><pre><code>Student
 Engineer
-</code></pre><h1 id=3-strategy>3. Strategy</h1><p>The Strategy pattern is a behavioral design pattern that allows to <strong>scaffold a certain algorithm and provide the specific implementation at runtime</strong>.</p><p>This allows to make the implementation of a algorithms family interchangable.</p><p>The keypoints to properly implement such a pattern are:</p><ul><li>an interface that allows to abstract the steps of the algorithm</li><li>a constructor that receives the desired interface implementation</li></ul><p>Here is an example:</p><ul><li><p>an interface that defines the steps of the process</p><p>public interface MyProcess {</p><pre><code>  public void extract();
+</code></pre><h1 id=3-strategy>3. Strategy</h1><p>The Strategy pattern is a behavioral design pattern that allows to <strong>scaffold a certain algorithm and provide the specific implementation at runtime</strong>.</p><p>This allows to make the implementation of a algorithms family interchangable.</p><p>The keypoints to properly implement such a pattern are:</p><ul><li>an interface that allows to abstract the steps of the algorithm</li><li>a constructor that receives the desired interface implementation</li></ul><p>Here is an example:</p><ul><li><p>an interface that defines the steps of the process</p><pre><code>public interface MyProcess {
+  public void extract();
     
   public void transform();
     
   public void load();
-</code></pre><p>}</p></li><li><p>a set of interchangable implementations of the interface</p><p>public class ProcessOne implements MyProcess {</p><pre><code>  @Override
-  public void extract() {
+}
+</code></pre></li><li><p>a set of interchangable implementations of the interface</p><pre><code>  public class ProcessOne implements MyProcess {
+    @Override
+    public void extract() {
       System.out.println(&quot;Get data via HTTP&quot;);
-  }
+    }
   
-  @Override
-  public void transform() {
+    @Override
+    public void transform() {
       System.out.println(&quot;Convert them in XML&quot;);
-  }
+    }
   
-  @Override
-  public void load() {
+    @Override
+    public void load() {
       System.out.println(&quot;Save them into Postgres Database&quot;);
+    }
   }
-</code></pre><p>}</p><p>public class ProcessTwo implements MyProcess {</p><pre><code>  @Override
+    
+  public class ProcessTwo implements MyProcess {
+      @Override
   public void extract() {
       System.out.println(&quot;Get data via FTP&quot;);
   }
@@ -133,7 +139,10 @@ Engineer
   public void load() {
       System.out.println(&quot;Save them into MongoDB Database&quot;);
   }
-</code></pre><p>}</p><p>public class ProcessThree implements MyProcess {</p><pre><code>  @Override
+}
+  
+public class ProcessThree implements MyProcess {
+  @Override
   public void extract() {
       System.out.println(&quot;Get data from MySQL&quot;);
   }
@@ -147,7 +156,8 @@ Engineer
   public void load() {
       System.out.println(&quot;Send them via HTTP&quot;);
   }
-</code></pre><p>}</p></li><li><p>a processor class that receives in the constructor the interface implementation to use</p><p>public class Processor {</p><pre><code>  private MyProcess proc;
+}
+</code></pre></li><li><p>a processor class that receives in the constructor the interface implementation to use</p><p>public class Processor {</p><pre><code>  private MyProcess proc;
     
   public Processor(MyProcess processToExecute) {
       this.proc = processToExecute;
@@ -181,21 +191,34 @@ Save them into MongoDB Database
 Get data from MySQL
 Do Nothing
 Send them via HTTP
-</code></pre><h1 id=4-observer>4. Observer</h1><p>The Observer pattern is a behavioral design pattern that allows to <strong>decouple events handling from the main program</strong>.</p><p>Imagine having a main program that triggers many events, e.g. data insertion in DB, and the program must be <strong>reactive</strong> to these events. The observer is the perfect pattern for this use cases</p><p>The keypoints to properly implement such a pattern are:</p><ul><li>an interface that define a common signature for all the observers</li><li>a class, acting as event emitter, that loops through all the observers in order to notify them</li></ul><p>Here is an example:</p><ul><li><p>the Observer interface defines the signature for the <em>react</em> method</p><p>public interface Observer {</p><pre><code>  public void react();
-</code></pre><p>}</p></li><li><p>a set of classes that implements such an interface</p><p>public class Notifier implements Observer {</p><pre><code>  @Override
+</code></pre><h1 id=4-observer>4. Observer</h1><p>The Observer pattern is a behavioral design pattern that allows to <strong>decouple events handling from the main program</strong>.</p><p>Imagine having a main program that triggers many events, e.g. data insertion in DB, and the program must be <strong>reactive</strong> to these events. The observer is the perfect pattern for this use cases</p><p>The keypoints to properly implement such a pattern are:</p><ul><li>an interface that define a common signature for all the observers</li><li>a class, acting as event emitter, that loops through all the observers in order to notify them</li></ul><p>Here is an example:</p><ul><li><p>the Observer interface defines the signature for the <em>react</em> method</p><pre><code>public interface Observer {
+  public void react();
+}
+</code></pre></li><li><p>a set of classes that implements such an interface</p><pre><code>public class Notifier implements Observer {  
+  @Override
   public void react() {
       System.out.println(&quot;Notify 3rd party application via HTTP&quot;);
   }
-</code></pre><p>}</p><p>public class Logger implements Observer {</p><pre><code>  @Override
+}
+  
+public class Logger implements Observer {
+  @Override
   public void react() {
       System.out.println(&quot;Log event on central log server&quot;);
   }
-</code></pre><p>}</p><p>public class Validator implements Observer {</p><pre><code>  @Override
+}
+  
+public class Validator implements Observer {
+  @Override
   public void react() {
       System.out.println(&quot;Validate the submitted data&quot;);
   }
-</code></pre><p>}</p></li><li><p>a class acting as event emitter</p><p>import java.util.ArrayList;
-import java.util.List;</p><p>public class DataHandler {</p><pre><code>  private List&lt;Observer&gt; observers = new ArrayList&lt;&gt;();
+}
+</code></pre></li><li><p>a class acting as event emitter</p><pre><code>import java.util.ArrayList;
+import java.util.List;
+  
+public class DataHandler {
+  private List&lt;Observer&gt; observers = new ArrayList&lt;&gt;();
     
   public void addObserver(Observer obs) {
       observers.add(obs);
@@ -215,7 +238,8 @@ import java.util.List;</p><p>public class DataHandler {</p><pre><code>  private 
   public void notifyObservers() {
       observers.forEach(Observer::react);
   }
-</code></pre><p>}</p></li><li><p>the main program has only to register the observers and trigger the event</p><pre><code>  public static void main(String[] args) {
+}
+</code></pre></li><li><p>the main program has only to register the observers and trigger the event</p><pre><code>  public static void main(String[] args) {
       DataHandler dh = new DataHandler();
     	
       dh.addObserver(new Validator());
@@ -232,58 +256,80 @@ import java.util.List;</p><p>public class DataHandler {</p><pre><code>  private 
       System.out.println(&quot;=====&quot;);
   
   }
-</code></pre></li></ul><h1 id=5-facade>5. Facade</h1><p>The Facade pattern is architectural pattern that is very useful to <strong>provide a simple interface for complex and big subsystem</strong>.</p><p>The unique requirement to adopt such a pattern is having a class that provide to clients simple signatures encapsulating, under the hood, all the complexities of a subsystem.</p><p>Here is an example:</p><ul><li><p>we have a &ldquo;big&rdquo; subsystem composed by meals and chef that must be coordinated for breakfast, lunch and dinner in a restaurant</p><p>public class Meal {</p><pre><code>  private String description;
-	
+</code></pre></li></ul><h1 id=5-facade>5. Facade</h1><p>The Facade pattern is architectural pattern that is very useful to <strong>provide a simple interface for complex and big subsystem</strong>.</p><p>The unique requirement to adopt such a pattern is having a class that provide to clients simple signatures encapsulating, under the hood, all the complexities of a subsystem.</p><p>Here is an example:</p><ul><li><p>we have a &ldquo;big&rdquo; subsystem composed by meals and chef that must be coordinated for breakfast, lunch and dinner in a restaurant</p><pre><code>public class Meal {
+  private String description;
+    
   public Meal (String mealtype) {
       this.description = mealtype;
   }
-	
+    
   public String getDescription() {
       return this.description;
   }
-</code></pre><p>}</p><p>public interface Chef {</p><pre><code>  public Meal cook();
-</code></pre><p>}</p><p>public class DessertChef implements Chef {</p><pre><code>  //A chef able to cook only Dessert
-	
+}
+  
+public interface Chef {
+  public Meal cook();
+}
+  
+public class DessertChef implements Chef {
+  
+  //A chef able to cook only Dessert
+    
   public Meal cook() {
       return new Meal(&quot;Dessert&quot;);
   }
-</code></pre><p>}</p><p>public class PizzaChef implements Chef {</p><pre><code>  //A chef able to cook only Pizza
-	
+  
+}
+  
+public class PizzaChef implements Chef {
+  
+  //A chef able to cook only Pizza
+    
   public Meal cook() {
       return new Meal(&quot;Pizza&quot;);
   }
-</code></pre><p>}</p><p>public class HamburgerChef implements Chef {</p><pre><code>  //A chef able to cook only Hamburger
-	
+  
+}
+  
+public class HamburgerChef implements Chef {
+  
+  //A chef able to cook only Hamburger
+    
   public Meal cook() {
       return new Meal(&quot;Hamburger&quot;);
   }
-</code></pre><p>}</p></li><li><p>The facade class in this case is the following Restaurant class that defines which chef should work for breakfast, lunch and dinner</p><p>public class Restaurant {</p><pre><code>  private Chef cook1 = new DessertChef();
+  
+}
+</code></pre></li><li><p>The facade class in this case is the following Restaurant class that defines which chef should work for breakfast, lunch and dinner</p><pre><code>public class Restaurant {
+  private Chef cook1 = new DessertChef();
   private Chef cook2 = new PizzaChef();
   private Chef cook3 = new HamburgerChef();
-	
+    
   public Meal breakfast() {
       return cook1.cook();
   }
-	
+    
   public Meal lunch() {
       return cook3.cook();
   }
-	
+    
   public Meal dinner() {
       return cook2.cook();
   }
-</code></pre><p>}</p></li><li><p>that main program can use the facade class as follows:</p><pre><code>  public static void main(String[] args) {
+}
+</code></pre></li><li><p>that main program can use the facade class as follows:</p><pre><code>  public static void main(String[] args) {
       Restaurant sirninos = new Restaurant();
-		
+    	
       Meal breakfast = sirninos.breakfast();
       System.out.println(breakfast.getDescription());
-		
+    	
       Meal lunch = sirninos.lunch();
       System.out.println(lunch.getDescription());
-		
+    	
       Meal dinner = sirninos.dinner();
       System.out.println(dinner.getDescription());
-		
+    	
   }
 </code></pre></li></ul><p>The client (in this case the main program) is absolutely not aware about which chef will cook for breakfast, lunch or dinner; it simply asks for a good meal &mldr;</p><h1 id=6-lazy-loading>6. Lazy Loading</h1><p>The Lazy Loading pattern is a performance improving pattern that allows to <strong>postpone the initialization of an element only when it&rsquo;s really needed</strong>.</p><p>The unique requirement here is to properly handle the initialization in the getter methods. Here is an example with an object containing a List<string> as private field:</p><pre><code>import java.util.ArrayList;
 import java.util.List;
