@@ -247,8 +247,7 @@ Here is an example:
       
 * a processor class that receives in the constructor the interface implementation to use
 
-  public class Processor {
-
+      public class Processor {
         private MyProcess proc;
         
         public Processor(MyProcess processToExecute) {
