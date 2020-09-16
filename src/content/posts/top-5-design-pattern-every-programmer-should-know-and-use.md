@@ -185,39 +185,34 @@ Here is an example:
 
 * an interface that defines the steps of the process
 
-  public interface MyProcess {
-
+      public interface MyProcess {
         public void extract();
         
         public void transform();
         
         public void load();
-
-  }
+      }
 * a set of interchangable implementations of the interface
 
-  public class ProcessOne implements MyProcess {
-
-        @Override
-        public void extract() {
-        	System.out.println("Get data via HTTP");
-        }
+        public class ProcessOne implements MyProcess {
+          @Override
+          public void extract() {
+            System.out.println("Get data via HTTP");
+          }
       
-        @Override
-        public void transform() {
-        	System.out.println("Convert them in XML");
-        }
+          @Override
+          public void transform() {
+            System.out.println("Convert them in XML");
+          }
       
-        @Override
-        public void load() {
-        	System.out.println("Save them into Postgres Database");
+          @Override
+          public void load() {
+            System.out.println("Save them into Postgres Database");
+          }
         }
-
-  }
-
-  public class ProcessTwo implements MyProcess {
-
-        @Override
+        
+        public class ProcessTwo implements MyProcess {
+        	@Override
         public void extract() {
         	System.out.println("Get data via FTP");
         }
@@ -231,11 +226,9 @@ Here is an example:
         public void load() {
         	System.out.println("Save them into MongoDB Database");
         }
-
-  }
-
-  public class ProcessThree implements MyProcess {
-
+      }
+      
+      public class ProcessThree implements MyProcess {
         @Override
         public void extract() {
         	System.out.println("Get data from MySQL");
@@ -250,8 +243,8 @@ Here is an example:
         public void load() {
         	System.out.println("Send them via HTTP");
         }
-
-  }
+      }
+      
 * a processor class that receives in the constructor the interface implementation to use
 
   public class Processor {
@@ -313,46 +306,37 @@ Here is an example:
 
 * the Observer interface defines the signature for the _react_ method
 
-  public interface Observer {
-
+      public interface Observer {
         public void react();
-
-  }
+      }
 * a set of classes that implements such an interface
 
-  public class Notifier implements Observer {
-
+      public class Notifier implements Observer {  
         @Override
         public void react() {
         	System.out.println("Notify 3rd party application via HTTP");
         }
-
-  }
-
-  public class Logger implements Observer {
-
+      }
+      
+      public class Logger implements Observer {
         @Override
         public void react() {
         	System.out.println("Log event on central log server");
         }
-
-  }
-
-  public class Validator implements Observer {
-
+      }
+      
+      public class Validator implements Observer {
         @Override
         public void react() {
         	System.out.println("Validate the submitted data");
         }
-
-  }
+      }
 * a class acting as event emitter
 
-  import java.util.ArrayList;
-  import java.util.List;
-
-  public class DataHandler {
-
+      import java.util.ArrayList;
+      import java.util.List;
+      
+      public class DataHandler {
         private List<Observer> observers = new ArrayList<>();
         
         public void addObserver(Observer obs) {
@@ -373,8 +357,7 @@ Here is an example:
         public void notifyObservers() {
         	observers.forEach(Observer::react);
         }
-
-  }
+      }
 * the main program has only to register the observers and trigger the event
 
         public static void main(String[] args) {
@@ -405,94 +388,85 @@ Here is an example:
 
 * we have a "big" subsystem composed by meals and chef that must be coordinated for breakfast, lunch and dinner in a restaurant
 
-    public class Meal {
-    	
-    	private String description;
-    	
-    	public Meal (String mealtype) {
-    		this.description = mealtype;
-    	}
-    	
-    	public String getDescription() {
-    		return this.description;
-    	}
-    
-    }
-    
-    public interface Chef {
-    	
-    	public Meal cook();
-    
-    }
-    
-    public class DessertChef implements Chef {
-    
-    	//A chef able to cook only Dessert
-    	
-    	public Meal cook() {
-    		return new Meal("Dessert");
-    	}
-    
-    }
-    
-    public class PizzaChef implements Chef {
-    
-    	//A chef able to cook only Pizza
-    	
-    	public Meal cook() {
-    		return new Meal("Pizza");
-    	}
-    
-    }
-    
-    public class HamburgerChef implements Chef {
-    
-    	//A chef able to cook only Hamburger
-    	
-    	public Meal cook() {
-    		return new Meal("Hamburger");
-    	}
-    
-    }
-    
-
+      public class Meal {
+        private String description;
+        
+        public Meal (String mealtype) {
+        	this.description = mealtype;
+        }
+        
+        public String getDescription() {
+        	return this.description;
+        }
+      }
+      
+      public interface Chef {
+        public Meal cook();
+      }
+      
+      public class DessertChef implements Chef {
+      
+        //A chef able to cook only Dessert
+        
+        public Meal cook() {
+        	return new Meal("Dessert");
+        }
+      
+      }
+      
+      public class PizzaChef implements Chef {
+      
+        //A chef able to cook only Pizza
+        
+        public Meal cook() {
+        	return new Meal("Pizza");
+        }
+      
+      }
+      
+      public class HamburgerChef implements Chef {
+      
+        //A chef able to cook only Hamburger
+        
+        public Meal cook() {
+        	return new Meal("Hamburger");
+        }
+      
+      }
 * The facade class in this case is the following Restaurant class that defines which chef should work for breakfast, lunch and dinner
 
-    public class Restaurant {
-    	
-    	private Chef cook1 = new DessertChef();
-    	private Chef cook2 = new PizzaChef();
-    	private Chef cook3 = new HamburgerChef();
-    	
-    	public Meal breakfast() {
-    		return cook1.cook();
-    	}
-    	
-    	public Meal lunch() {
-    		return cook3.cook();
-    	}
-    	
-    	public Meal dinner() {
-    		return cook2.cook();
-    	}
-    
-    }
-
+      public class Restaurant {
+        private Chef cook1 = new DessertChef();
+        private Chef cook2 = new PizzaChef();
+        private Chef cook3 = new HamburgerChef();
+        
+        public Meal breakfast() {
+        	return cook1.cook();
+        }
+        
+        public Meal lunch() {
+        	return cook3.cook();
+        }
+        
+        public Meal dinner() {
+        	return cook2.cook();
+        }
+      }
 * that main program can use the facade class as follows:
 
-    	public static void main(String[] args) {
-    		Restaurant sirninos = new Restaurant();
-    		
-    		Meal breakfast = sirninos.breakfast();
-    		System.out.println(breakfast.getDescription());
-    		
-    		Meal lunch = sirninos.lunch();
-    		System.out.println(lunch.getDescription());
-    		
-    		Meal dinner = sirninos.dinner();
-    		System.out.println(dinner.getDescription());
-    		
-    	}
+        public static void main(String[] args) {
+        	Restaurant sirninos = new Restaurant();
+        	
+        	Meal breakfast = sirninos.breakfast();
+        	System.out.println(breakfast.getDescription());
+        	
+        	Meal lunch = sirninos.lunch();
+        	System.out.println(lunch.getDescription());
+        	
+        	Meal dinner = sirninos.dinner();
+        	System.out.println(dinner.getDescription());
+        	
+        }
 
 The client (in this case the main program) is absolutely not aware about which chef will cook for breakfast, lunch or dinner; it simply asks for a good meal ...
 
