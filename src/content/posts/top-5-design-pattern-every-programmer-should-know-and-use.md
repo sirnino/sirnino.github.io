@@ -36,7 +36,7 @@ Using a design pattern ensures that side effects won't happen during the develop
 
 # 1. Singleton
 
-The Singleton pattern is a creational design pattern that allows to make sure that only one instance of a certain class is created during the software lifecycle. This is required for example for database connections, http clients, etc...
+The Singleton pattern is a creational design pattern that allows to **make sure that only one instance of a certain class is created during the software lifecycle**. This is required for example for database connections, http clients, etc...
 
 In order to be a good Singleton, a class must follow 3 main requirements:
 
@@ -398,7 +398,7 @@ Here is an example:
 
 # 5. Facade
 
-The Facade pattern is architectural pattern that is very useful to provide a simple interface for complex and big subsystem.
+The Facade pattern is architectural pattern that is very useful to **provide a simple interface for complex and big subsystem**.
 
 The unique requirement to adopt such a pattern is having a class that provide to clients simple signatures encapsulating, under the hood, all the complexities of a subsystem.
 
@@ -497,7 +497,50 @@ Here is an example:
 
 The client (in this case the main program) is absolutely not aware about which chef will cook for breakfast, lunch or dinner; it simply asks for a good meal ...
 
-# 6. Lazy Loading (Performance)
+# 6. Lazy Loading
+
+The Lazy Loading pattern is a performance improving pattern that allows to **postpone the initialization of an element only when it's really needed**.
+
+The unique requirement here is to properly handle the initialization in the getter methods. Here is an example with an object containing a List<String> as private field:
+
+    import java.util.ArrayList;
+    import java.util.List;
+    
+    public class MyObject {
+    	
+    	private List<String> names;
+    	
+    	public List<String> getNames(){
+    		if(names == null) {
+    			initNames();
+    		}
+    		
+    		return names;
+    	}
+    
+    	private void initNames() {
+    		this.names = new ArrayList<>();
+    		names.add("Seth Gibbs");
+    		names.add("Adele Villegas");
+    		names.add("Meadow Cannon");
+    		names.add("Manav Redfern");
+    		names.add("Alba Spencer");
+    		names.add("Ishan Hays");
+    		names.add("Zachary Ireland");
+    		names.add("Asad Kavanagh");
+    		names.add("Laylah Spears");
+    		names.add("Yaqub Howells");
+    	}
+    
+    }
+
+The keypoint is:
+
+    if(names == null) {
+    	initNames();
+    }
+
+The first time the getter method getNames() is used, the initNames method initialize the names field. This makes the objet allocation phase much faster, in particular when the init of a fields requires a lot of time.
 
 # Conclusion
 
