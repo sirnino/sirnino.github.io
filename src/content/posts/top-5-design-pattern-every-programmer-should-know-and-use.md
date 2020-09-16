@@ -495,7 +495,7 @@ Here is an example:
     		
     	}
 
-The client (in this case the main program) is absolutely not aware about which chef will cook for breakfast, lunch or dinner.. it simply asks for a good meal ;)
+The client (in this case the main program) is absolutely not aware about which chef will cook for breakfast, lunch or dinner.. it simply asks for a good meal ...
 
 # 6. Lazy Loading (Performance)
 
