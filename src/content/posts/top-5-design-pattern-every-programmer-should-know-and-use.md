@@ -19,7 +19,6 @@ There are a lot of design patterns for many different purposes. But the top 5, i
 3. Strategy (Behavioral Pattern)
 4. Observer (Behavioral Pattern)
 5. Facade (Architectural Pattern)
-6. Lazy Loading (Performance Pattern)
 
 # What is a design pattern?
 
@@ -244,7 +243,6 @@ Here is an example:
         	System.out.println("Send them via HTTP");
         }
       }
-      
 * a processor class that receives in the constructor the interface implementation to use
 
       public class Processor {
@@ -469,7 +467,7 @@ Here is an example:
 
 The client (in this case the main program) is absolutely not aware about which chef will cook for breakfast, lunch or dinner; it simply asks for a good meal ...
 
-# 6. Lazy Loading
+# Bonus: Lazy Loading
 
 The Lazy Loading pattern is a performance improving pattern that allows to **postpone the initialization of an element only when it's really needed**.
 
