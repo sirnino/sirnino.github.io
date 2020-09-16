@@ -157,7 +157,8 @@ public class ProcessThree implements MyProcess {
       System.out.println(&quot;Send them via HTTP&quot;);
   }
 }
-</code></pre></li><li><p>a processor class that receives in the constructor the interface implementation to use</p><p>public class Processor {</p><pre><code>  private MyProcess proc;
+</code></pre></li><li><p>a processor class that receives in the constructor the interface implementation to use</p><pre><code>public class Processor {
+  private MyProcess proc;
     
   public Processor(MyProcess processToExecute) {
       this.proc = processToExecute;
