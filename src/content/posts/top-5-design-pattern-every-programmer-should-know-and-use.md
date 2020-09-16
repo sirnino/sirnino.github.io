@@ -186,108 +186,104 @@ Here is an example:
 
 * an interface that defines the steps of the process
 
-    public interface MyProcess {
-    	
-    	public void extract();
-    	
-    	public void transform();
-    	
-    	public void load();
-    
-    }
-    
+  public interface MyProcess {
 
+        public void extract();
+        
+        public void transform();
+        
+        public void load();
+
+  }
 * a set of interchangable implementations of the interface
 
-    public class ProcessOne implements MyProcess {
-    
-    	@Override
-    	public void extract() {
-    		System.out.println("Get data via HTTP");
-    	}
-    
-    	@Override
-    	public void transform() {
-    		System.out.println("Convert them in XML");
-    	}
-    
-    	@Override
-    	public void load() {
-    		System.out.println("Save them into Postgres Database");
-    	}
-    
-    }
-    
-    public class ProcessTwo implements MyProcess {
-    
-    	@Override
-    	public void extract() {
-    		System.out.println("Get data via FTP");
-    	}
-    
-    	@Override
-    	public void transform() {
-    		System.out.println("Convert them in CSV");
-    	}
-    
-    	@Override
-    	public void load() {
-    		System.out.println("Save them into MongoDB Database");
-    	}
-    
-    }
-    
-    public class ProcessThree implements MyProcess {
-    
-    	@Override
-    	public void extract() {
-    		System.out.println("Get data from MySQL");
-    	}
-    
-    	@Override
-    	public void transform() {
-    		System.out.println("Do Nothing");
-    	}
-    
-    	@Override
-    	public void load() {
-    		System.out.println("Send them via HTTP");
-    	}
-    
-    }
+  public class ProcessOne implements MyProcess {
 
+        @Override
+        public void extract() {
+        	System.out.println("Get data via HTTP");
+        }
+      
+        @Override
+        public void transform() {
+        	System.out.println("Convert them in XML");
+        }
+      
+        @Override
+        public void load() {
+        	System.out.println("Save them into Postgres Database");
+        }
+
+  }
+
+  public class ProcessTwo implements MyProcess {
+
+        @Override
+        public void extract() {
+        	System.out.println("Get data via FTP");
+        }
+      
+        @Override
+        public void transform() {
+        	System.out.println("Convert them in CSV");
+        }
+      
+        @Override
+        public void load() {
+        	System.out.println("Save them into MongoDB Database");
+        }
+
+  }
+
+  public class ProcessThree implements MyProcess {
+
+        @Override
+        public void extract() {
+        	System.out.println("Get data from MySQL");
+        }
+      
+        @Override
+        public void transform() {
+        	System.out.println("Do Nothing");
+        }
+      
+        @Override
+        public void load() {
+        	System.out.println("Send them via HTTP");
+        }
+
+  }
 * a processor class that receives in the constructor the interface implementation to use
 
-    public class Processor {
-    	
-    	private MyProcess proc;
-    	
-    	public Processor(MyProcess processToExecute) {
-    		this.proc = processToExecute;
-    	}
-    		
-    	public void run() {
-    		proc.extract();
-    		proc.transform();
-    		proc.load();
-    	}
-    
-    }
+  public class Processor {
 
+        private MyProcess proc;
+        
+        public Processor(MyProcess processToExecute) {
+        	this.proc = processToExecute;
+        }
+        	
+        public void run() {
+        	proc.extract();
+        	proc.transform();
+        	proc.load();
+        }
+
+  }
 * the main program that uses the processor
 
-    	public static void main(String[] args) {
-    		
-    		Processor processor1 = new Processor(new ProcessOne());
-    		processor1.run();
-    		
-    		Processor processor2 = new Processor(new ProcessTwo());
-    		processor2.run();
-    		
-    		Processor processor3 = new Processor(new ProcessThree());
-    		processor3.run();
-    		
-    	}
+        public static void main(String[] args) {
+        	
+        	Processor processor1 = new Processor(new ProcessOne());
+        	processor1.run();
+        	
+        	Processor processor2 = new Processor(new ProcessTwo());
+        	processor2.run();
+        	
+        	Processor processor3 = new Processor(new ProcessThree());
+        	processor3.run();
+        	
+        }
 
 The output of this example is the following:
 
@@ -318,92 +314,188 @@ Here is an example:
 
 * the Observer interface defines the signature for the _react_ method
 
-    public interface Observer {
-    	
-    	public void react();
-    
-    }
+  public interface Observer {
 
+        public void react();
+
+  }
 * a set of classes that implements such an interface
 
-    public class Notifier implements Observer {
-    
-    	@Override
-    	public void react() {
-    		System.out.println("Notify 3rd party application via HTTP");
-    	}
-    
-    }
-    
-    public class Logger implements Observer {
-    
-    	@Override
-    	public void react() {
-    		System.out.println("Log event on central log server");
-    	}
-    
-    }
-    
-    public class Validator implements Observer {
-    
-    	@Override
-    	public void react() {
-    		System.out.println("Validate the submitted data");
-    	}
-    
-    }
+  public class Notifier implements Observer {
 
+        @Override
+        public void react() {
+        	System.out.println("Notify 3rd party application via HTTP");
+        }
+
+  }
+
+  public class Logger implements Observer {
+
+        @Override
+        public void react() {
+        	System.out.println("Log event on central log server");
+        }
+
+  }
+
+  public class Validator implements Observer {
+
+        @Override
+        public void react() {
+        	System.out.println("Validate the submitted data");
+        }
+
+  }
 * a class acting as event emitter
 
-    import java.util.ArrayList;
-    import java.util.List;
-    
-    public class DataHandler {
+  import java.util.ArrayList;
+  import java.util.List;
+
+  public class DataHandler {
+
+        private List<Observer> observers = new ArrayList<>();
+        
+        public void addObserver(Observer obs) {
+            observers.add(obs);
+        }
+      
+        public void removeObserver(Observer obs) {
+        	observers.remove(obs);
+        }
+        
+        public void saveData(int data) {
+        	
+        	System.out.println("Data "+data+" saved correctly");
+        	
+        	notifyObservers();
+        }
+        
+        public void notifyObservers() {
+        	observers.forEach(Observer::react);
+        }
+
+  }
+* the main program has only to register the observers and trigger the event
+
+        public static void main(String[] args) {
+        	DataHandler dh = new DataHandler();
+        	
+        	dh.addObserver(new Validator());
+        	dh.addObserver(new Notifier());
+        	dh.addObserver(new Logger());
+        	
+        	dh.saveData(1);
+        	System.out.println("=====");
+        	
+        	dh.saveData(2);
+        	System.out.println("=====");
+        	
+        	dh.saveData(3);
+        	System.out.println("=====");
+      
+        }
+
+# 5. Facade
+
+The Facade pattern is architectural pattern that is very useful to provide a simple interface for complex and big subsystem.
+
+The unique requirement to adopt such a pattern is having a class that provide to clients simple signatures encapsulating, under the hood, all the complexities of a subsystem.
+
+Here is an example:
+
+* we have a "big" subsystem composed by meals and chef that must be coordinated for breakfast, lunch and dinner in a restaurant
+
+    public class Meal {
     	
-    	private List<Observer> observers = new ArrayList<>();
+    	private String description;
     	
-    	public void addObserver(Observer obs) {
-    	    observers.add(obs);
+    	public Meal (String mealtype) {
+    		this.description = mealtype;
+    	}
+    	
+    	public String getDescription() {
+    		return this.description;
     	}
     
-    	public void removeObserver(Observer obs) {
-    		observers.remove(obs);
+    }
+    
+    public interface Chef {
+    	
+    	public Meal cook();
+    
+    }
+    
+    public class DessertChef implements Chef {
+    
+    	//A chef able to cook only Dessert
+    	
+    	public Meal cook() {
+    		return new Meal("Dessert");
+    	}
+    
+    }
+    
+    public class PizzaChef implements Chef {
+    
+    	//A chef able to cook only Pizza
+    	
+    	public Meal cook() {
+    		return new Meal("Pizza");
+    	}
+    
+    }
+    
+    public class HamburgerChef implements Chef {
+    
+    	//A chef able to cook only Hamburger
+    	
+    	public Meal cook() {
+    		return new Meal("Hamburger");
+    	}
+    
+    }
+    
+
+* The facade class in this case is the following Restaurant class that defines which chef should work for breakfast, lunch and dinner
+
+    public class Restaurant {
+    	
+    	private Chef cook1 = new DessertChef();
+    	private Chef cook2 = new PizzaChef();
+    	private Chef cook3 = new HamburgerChef();
+    	
+    	public Meal breakfast() {
+    		return cook1.cook();
     	}
     	
-    	public void saveData(int data) {
-    		
-    		System.out.println("Data "+data+" saved correctly");
-    		
-    		notifyObservers();
+    	public Meal lunch() {
+    		return cook3.cook();
     	}
     	
-    	public void notifyObservers() {
-    		observers.forEach(Observer::react);
+    	public Meal dinner() {
+    		return cook2.cook();
     	}
     
     }
 
-* the main program has only to register the observers and trigger the event
+* that main program can use the facade class as follows:
 
     	public static void main(String[] args) {
-    		DataHandler dh = new DataHandler();
+    		Restaurant sirninos = new Restaurant();
     		
-    		dh.addObserver(new Validator());
-    		dh.addObserver(new Notifier());
-    		dh.addObserver(new Logger());
+    		Meal breakfast = sirninos.breakfast();
+    		System.out.println(breakfast.getDescription());
     		
-    		dh.saveData(1);
-    		System.out.println("=====");
+    		Meal lunch = sirninos.lunch();
+    		System.out.println(lunch.getDescription());
     		
-    		dh.saveData(2);
-    		System.out.println("=====");
+    		Meal dinner = sirninos.dinner();
+    		System.out.println(dinner.getDescription());
     		
-    		dh.saveData(3);
-    		System.out.println("=====");
-    
     	}
 
-# 5. Facade (Architectural)
+The client (in this case the main program) is absolutely not aware about which chef will cook for breakfast, lunch or dinner.. it simply asks for a good meal ;)
 
 # 6. Lazy Loading (Performance)
 
