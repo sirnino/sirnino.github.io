@@ -24,11 +24,11 @@ It was a race against time!
 
 We had to release new functionalities in production daily. The regional health service needed to have as much information as possible about the tests, the contagion status, the hotbeds, etc..
 
-Me, my 3 developer team, my boss, my boss's boss and a 4 people subject matter team worked day and night for weeks... I think that we slept for just 3 hours per night for a while... 
+Me, my 3 developer team, my boss, my boss's boss and a 4 people subject matter team worked day and night for weeks... I think that we slept for just 3 hours per night for a while...
 
 A sacrifice (not too big after all), but for a good reason. I like to think that we leveraged our IT skills to save lives. In pandemic time, when people put their own lives in danger to save others' one, any help, even the smallest one, can make a difference.
 
-Unfortunately, the pandemic has been on going since march and the situation hasn't improved much over time. For this reason, in april, a new chance to help came to us: Milan and the entire Lombardy region, asked us exactly the same platform we deployed in Veneto.
+Unfortunately, the pandemic has been on going since march and the situation hasn't improved much over time. For this reason, in april, a new chance to help came to us: Milan and the entire Lombardy region asked us exactly the same platform we deployed in Veneto.
 
 Now we keep maintaining and evolving these platforms, being proud to help saving lives and hoping this situation will end as soon as possible.
 
