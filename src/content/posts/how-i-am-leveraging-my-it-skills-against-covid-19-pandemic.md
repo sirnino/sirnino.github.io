@@ -1,7 +1,6 @@
 +++
 date = 2020-09-12T17:12:02Z
 description = "I want to tell you about my team's race against time to help Italian Health service saving lives."
-draft = true
 hero = "/assets/images/it-covid-19.png"
 title = " How I am leveraging my IT skills against Covid-19 pandemic"
 [author]
