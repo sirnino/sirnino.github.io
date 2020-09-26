@@ -1,6 +1,6 @@
 +++
 date = 2020-09-12T17:12:02Z
-description = ""
+description = "I want to tell you about my team's race against time to help Italian Health service saving lives."
 draft = true
 hero = "/assets/images/it-covid-19.png"
 title = " How I am leveraging my IT skills against Covid-19 pandemic"
@@ -21,7 +21,7 @@ It was scaring and, at the same time, exciting!
 
 I'll never forget the very first days. We briefly discussed about the architecture and the technologies to adopt; but we didn't have the chance to plan everything perfectly because, you know, the pandemic was spreading all around the world: the Veneto region, our customer, was one of the most affected region in Italy.
 
-**It was a race against time!**
+It was a race against time!
 
 We had to release new functionalities in production daily. The regional health service needed to have as much information as possible about the tests, the contagion status, the hotbeds, etc..
 
