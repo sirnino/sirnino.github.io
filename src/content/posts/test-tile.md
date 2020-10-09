@@ -8,4 +8,4 @@ avatar = "/uploads/default-avatar.png"
 name = "Nino Sirchia"
 
 +++
-Blah Blah blah
+Blah Blah blah bòlah
