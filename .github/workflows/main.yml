@@ -24,4 +24,4 @@ jobs:
           keep_files: true
           user_name: sirnino
           user_email: asirchia@gmail.com
-          publish_branch: master
+          publish_branch: stable
