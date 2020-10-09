@@ -21,7 +21,6 @@ jobs:
           personal_token: ${{ secrets.TOKEN }}
           external_repository: sirnino/sirnino.github.io
           publish_dir: ./
-          exclude_assets: ''
           keep_files: true
           user_name: sirnino
           user_email: asirchia@gmail.com
