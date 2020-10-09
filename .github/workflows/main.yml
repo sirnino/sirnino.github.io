@@ -20,9 +20,9 @@ jobs:
         with:
           personal_token: ${{ secrets.TOKEN }}
           external_repository: sirnino/sirnino.github.io
-          publish_dir: ./
+          publish_dir: ./public
           exclude_assets: 'src'
           keep_files: true
           user_name: sirnino
           user_email: asirchia@gmail.com
-          publish_branch: master
+          publish_branch: stable
