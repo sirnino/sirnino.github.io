@@ -52,7 +52,3 @@ fields:
     maxSize: 64
   label: hero
   default: "/uploads/default-hero.jpg"
-pages:
-- src/content/posts/how-i-am-leveraging-my-it-skills-against-covid-19-pandemic.md
-- src/content/posts/test-tile.md
-- src/content/posts/top-5-design-pattern-every-programmer-should-know-and-use.md
