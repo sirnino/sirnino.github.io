@@ -9,7 +9,7 @@ sections:
   label: code
   create: all
   match: "**/*.html"
-  new_doc_ext: ".html"
+  new_doc_ext: html
 - type: directory
   path: src/content/posts
   label: Posts
