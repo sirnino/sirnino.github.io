@@ -1,0 +1,185 @@
+<html lang="it">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Commit message builder</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div class="container">
+
+	<h1>Commit message generator</h1>
+	<div class="row">
+		<div class="col-6">
+		<form autocomplete="off" onsubmit="javascript: return displayCommitMessage();">
+			<div class="row form-group ">
+				<div class="col-6">
+					<select id="selType" class="form-control" required name="type">
+						<option value="" selected>Choose...</option>
+						<option value="FEAT">FEATURE</option>
+						<option value="FIX">BUGFIX</option>
+						<option value="CI">CI/CD</option>
+						<option value="BUILD">BUILD</option>
+						<option value="DOCS">DOCS</option>
+						<option value="PERF">PERFORMANCE</option>
+						<option value="REFACTOR">REFACTOR</option>
+						<option value="STYLE">CODE STYLE</option>
+						<option value="TEST">TEST</option>
+						<option value="REVERT">REVERT</option>
+					</select>
+				</div>
+				<div class=" col-6">
+					<input type="Text" id="scopeText" class="form-control" maxlength="50" name="scope" />
+					<small id="scopeHelp" class="form-text text-muted">Indica la parte del codice oggetto del commit</small>
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-12">
+					<input required 
+						id="subjText"
+						class="form-control"
+						type="Text" 
+						maxlength="50" 
+						name="subj"/>
+					<small id="subjHelp" class="form-text text-muted">* Completa la frase: "Se applicato, questo commit..."</small>
+				</div>
+			</div>
+			
+			<div class="row form-group">
+				<div class="col-12">
+					<textarea
+						id="bodyText"
+						style="text-wrap:unrestricted;"
+						rows="5"
+						cols="72"
+						name="body"></textarea>
+					<small id="bodyHelp" class="form-text text-muted">
+						Enuncia le ragioni della modifica e le differenze con il comportamento precedente.
+					</small>
+				</div>
+			</div>
+			
+			<div class="row form-group">
+				<div class="col-12">
+					<input 
+						id="footerText"
+						class="form-control"
+						type="Text" 
+						name="footer" />
+					<small id="footerHelp" class="form-text text-muted">
+						Aggiungi codice e link all'eventuale task di riferimento (e.g. card su trello, issue su JIRA, ecc)
+					</small>
+				</div>
+			</div>
+			
+			<button type="submit" class="btn btn-primary">Genera messaggio di commit</button>
+			
+		</form>
+	</div>
+	
+	<div class="col-6">
+		<div class="row">
+			<div class="col-12">
+				<textarea readonly 
+					style="background-color:#efefef; text-wrap:unrestricted"
+					id="finalMsg"
+					rows="8"
+					cols="72">
+				</textarea>
+			</div>
+		</div>
+		<input class="btn btn-link" onclick="javascript: copyClipboard();" type="button" id="copy" value="Copia negli appunti">
+	</div>
+	
+</div>
+
+<script>
+
+	function capitalize(string){
+		return string.trim().charAt(0).toUpperCase() + string.slice(1);
+	}
+	
+	function wordWrap(str, maxWidth) {
+		var newLineStr = "\n"; done = false; res = '';
+		while (str.length > maxWidth) {                 
+			found = false;
+			// Inserts new line at first whitespace of the line
+			for (i = maxWidth - 1; i >= 0; i--) {
+				if (testWhite(str.charAt(i))) {
+					res = res + [str.slice(0, i), newLineStr].join('');
+					str = str.slice(i + 1);
+					found = true;
+					break;
+				}
+			}
+			// Inserts new line at maxWidth position, the word is too long to wrap
+			if (!found) {
+				res += [str.slice(0, maxWidth), newLineStr].join('');
+				str = str.slice(maxWidth);
+			}
+
+		}
+
+		return res + str;
+	}
+	
+	function formatScope(string){
+		return string.trim().replace(/\s+/gm, '_').toUpperCase();
+	}
+	
+	function formatSubject(string){
+		var clean = string.trim().replace(/\s+/gm, ' ');
+		var capitalized = capitalize(clean);
+		var ret = capitalized;
+		if(capitalized.endsWith(".") || capitalized.endsWith(",") || capitalized.endsWith(";") || capitalized.endsWith(":")){
+			ret = capitalized.slice(0, -1);
+		}
+		
+		return ret;
+	}
+	
+	function formatBody(string){
+		return string.trim();
+	}
+	function formatFooter(string){
+		return string.trim().replace(/\s+/gm, ' ');
+	}
+
+	function generate(){
+		
+		var prefix = "["+document.querySelector("#selType").value+"]";
+		
+		var scope = document.querySelector("#scopeText").value.trim();
+		scope = (scope.length>0) ? "("+formatScope(scope)+")" : "";
+		
+		var subj = formatSubject(document.querySelector("#subjText").value);
+		
+		var body = document.querySelector("#bodyText").value.trim();
+		body = (body.length>0) ? formatBody(body): "";
+		
+		var footer = document.querySelector("#footerText").value.trim();
+		footer = (footer.length>0) ? formatFooter(footer): "";
+
+		return (prefix+scope+" "+subj+"\n\n"+body+"\n\n"+footer).trim();
+	}
+	
+	function displayCommitMessage(){
+		document.querySelector("#finalMsg").innerHTML = generate();
+		return false;
+	}
+
+	function copyClipboard(){
+		if(document.querySelector("#finalMsg").innerHTML.trim().length>0){		
+			document.querySelector("#finalMsg").select();
+			document.execCommand('copy');
+		}
+	}
+</script>
+
+</body>
+</html>
