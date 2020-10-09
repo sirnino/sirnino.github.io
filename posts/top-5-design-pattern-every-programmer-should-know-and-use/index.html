@@ -1,0 +1,370 @@
+<!doctype html><html><head><title>Top 5 design pattern every Programmer should know (and use)</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/assets/css/bootstrap.min.css><link rel=stylesheet href=/assets/css/main.css><link rel=stylesheet href=/assets/css/style.css><link rel=stylesheet href=/assets/css/navigators/navbar.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><link rel=icon type=image/png href=/assets/images/logo.png><link rel=stylesheet href=/assets/css/style.css><meta name=description content="Top 5 design pattern every Programmer should know (and use)"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/assets/css/single.css><link rel=stylesheet href=/assets/css/navigators/sidebar.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=https://sirnino.github.io><img src=/assets/images/logo.png>Sirnino</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div><img src=/assets/images/logo.png class=d-none id=main-logo>
+<img src=/assets/images/logo.png class=d-none id=inverted-logo></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><input type=text placeholder=Search data-search id=search-box><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>Posts</a></li><div class=subtree></div></ul></div></div></div></section><section class=content-section id=content-section><div class=content><div class="container p-0 read-area"><div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sirnino.github.io/uploads/default-hero.jpg)></div><div class=page-content><div class="author-profile ml-auto align-self-lg-center"><img class=rounded-circle src=/assets/images/default-avatar.png><h5 class=author-name>Nino Sirchia</h5><p>September 12, 2020</p></div><div class=title><h1>Top 5 design pattern every Programmer should know (and use)</h1></div><div class=post-content id=post-content><h1 id=tldr>TL;DR</h1><p>Following a design pattern is the best way possible you have to solve a problem without undesired side effects.</p><p>There are a lot of design patterns for many different purposes. But the top 5, in my opinion, is the following one:</p><ol><li>Singleton (Creational Pattern)</li><li>Factory (Creational Pattern)</li><li>Strategy (Behavioral Pattern)</li><li>Observer (Behavioral Pattern)</li><li>Facade (Architectural Pattern)</li></ol><h1 id=what-is-a-design-pattern>What is a design pattern?</h1><p>Every developer, sooner or later, is faced with frequent problems for which someone else, on the basis of various experiences, has defined a solution universally recognized as &ldquo;the best one&rdquo;.</p><p><strong>A design pattern is an abstraction of the best solution to a frequent problem in software development</strong>.</p><h1 id=why-to-use-a-design-pattern>Why to use a design pattern?</h1><p>If a developer faces a problem, the best idea he could have is to use a well-known and tested solution, without re-inventing the wheel.</p><p>Using a design pattern ensures that side effects won&rsquo;t happen during the development process and, also, that the problem will be solved with the best approach possible.</p><h1 id=1-singleton>1. Singleton</h1><p>The Singleton pattern is a creational design pattern that allows to <strong>make sure that only one instance of a certain class is created during the software lifecycle</strong>. This is required for example for database connections, http clients, etc&mldr;</p><p>In order to be a good Singleton, a class must follow 3 main requirements:</p><ul><li>must have a <strong>private constructor</strong></li><li>must have a private static field that is an <strong>instance of itself</strong></li><li>must have a <strong>getInstance</strong> static method that, in a thread safe way, provides the unique instance</li></ul><p>The following is an example of Singleton class.</p><pre><code>public class MySingleton {
+	
+    private static MySingleton instance;
+	
+    private MySingleton() {
+        //Do your construction stuff. Nothing in this example
+    }
+	
+    public static MySingleton getInstance() {
+        MySingleton localRef = instance;
+        if (localRef == null) {
+            synchronized (MySingleton.class) {
+                localRef = instance;
+                if (localRef == null) {
+                    instance = localRef = new MySingleton();
+                }
+            }
+        }
+        return localRef;
+    }
+	
+    public void dump() {
+        System.out.println(this);
+    }
+}
+</code></pre><p>Here is also the code for the main:</p><pre><code>    public static void main(String[] args) {
+        MySingleton inst1 = MySingleton.getInstance();
+        inst1.dump();
+		
+        MySingleton inst2 = MySingleton.getInstance();
+        inst2.dump();
+        
+        System.out.println(inst1.equals(inst2));
+    }
+</code></pre><p>The output, as expected, is something like:</p><pre><code>io.github.sirnino.MySingleton@7852e922
+io.github.sirnino.MySingleton@7852e922
+true
+</code></pre><h1 id=2-factory>2. Factory</h1><p>The Factory pattern is a creational design pattern that allows to <strong>encapsulate the object instantiation logic in a single point</strong>: the Factory Class. This ensures to avoid having &ldquo;new&rdquo; keyword scattered all around the codebase and to have a more mantainable code.</p><p>The keypoints to properly implement such a pattern are:</p><ul><li>a Factory Class that creates the objects</li><li>an enumeration that can be used as keyword to decide which kind of object the Factory should allocate</li></ul><p>Here is an example.</p><pre><code>public interface Person {
+    public String getWork();	
+}
+
+public enum PersonType {
+    STUDENT,
+    EMPLOYEE;
+}
+
+public class Employee implements Person{
+
+    private static final String DESCRIPTION = &quot;Engineer&quot;;
+	
+    @Override
+    public String getWork() {
+        return DESCRIPTION;
+    }
+
+}
+
+public class Student implements Person{
+
+    private static final String DESCRIPTION = &quot;Student&quot;;
+	
+    @Override
+    public String getWork() {
+        return DESCRIPTION;
+    }
+
+}
+</code></pre><p>The Factory class could be something like the following:</p><pre><code>public class MyFactory {
+
+    public static Person getPerson(PersonType type) {
+        Person ret;
+        switch(type) {
+            case STUDENT:
+                ret = new Student();
+                break;
+            case EMPLOYEE:
+                ret = new Employee();
+                break;
+            default:
+                throw new RuntimeException(&quot;Unknown type &quot;+type);
+        }
+		
+        return ret;
+    }
+
+}
+</code></pre><p>It can be used as follows:</p><pre><code>    public static void main(String[] args) {
+		
+        Person p1 = MyFactory.getPerson(PersonType.STUDENT);
+        System.out.println(p1.getWork());
+		
+        Person p2 = MyFactory.getPerson(PersonType.EMPLOYEE);
+        System.out.println(p2.getWork());
+		
+    }
+</code></pre><p>The Output of this code is the following:</p><pre><code>Student
+Engineer
+</code></pre><h1 id=3-strategy>3. Strategy</h1><p>The Strategy pattern is a behavioral design pattern that allows to <strong>scaffold a certain algorithm and provide the specific implementation at runtime</strong>.</p><p>This allows to make the implementation of a algorithms family interchangable.</p><p>The keypoints to properly implement such a pattern are:</p><ul><li>an interface that allows to abstract the steps of the algorithm</li><li>a constructor that receives the desired interface implementation</li></ul><p>Here is an example:</p><ul><li><p>an interface that defines the steps of the process</p><pre><code>public interface MyProcess {
+  public void extract();
+    
+  public void transform();
+    
+  public void load();
+}
+</code></pre></li><li><p>a set of interchangable implementations of the interface</p><pre><code>  public class ProcessOne implements MyProcess {
+    @Override
+    public void extract() {
+      System.out.println(&quot;Get data via HTTP&quot;);
+    }
+  
+    @Override
+    public void transform() {
+      System.out.println(&quot;Convert them in XML&quot;);
+    }
+  
+    @Override
+    public void load() {
+      System.out.println(&quot;Save them into Postgres Database&quot;);
+    }
+  }
+    
+  public class ProcessTwo implements MyProcess {
+      @Override
+  public void extract() {
+      System.out.println(&quot;Get data via FTP&quot;);
+  }
+  
+  @Override
+  public void transform() {
+      System.out.println(&quot;Convert them in CSV&quot;);
+  }
+  
+  @Override
+  public void load() {
+      System.out.println(&quot;Save them into MongoDB Database&quot;);
+  }
+}
+  
+public class ProcessThree implements MyProcess {
+  @Override
+  public void extract() {
+      System.out.println(&quot;Get data from MySQL&quot;);
+  }
+  
+  @Override
+  public void transform() {
+      System.out.println(&quot;Do Nothing&quot;);
+  }
+  
+  @Override
+  public void load() {
+      System.out.println(&quot;Send them via HTTP&quot;);
+  }
+}
+</code></pre></li><li><p>a processor class that receives in the constructor the interface implementation to use</p><pre><code>public class Processor {
+  private MyProcess proc;
+    
+  public Processor(MyProcess processToExecute) {
+      this.proc = processToExecute;
+  }
+    	
+  public void run() {
+      proc.extract();
+      proc.transform();
+      proc.load();
+  }
+</code></pre><p>}</p></li><li><p>the main program that uses the processor</p><pre><code>  public static void main(String[] args) {
+    	
+      Processor processor1 = new Processor(new ProcessOne());
+      processor1.run();
+    	
+      Processor processor2 = new Processor(new ProcessTwo());
+      processor2.run();
+    	
+      Processor processor3 = new Processor(new ProcessThree());
+      processor3.run();
+    	
+  }
+</code></pre></li></ul><p>The output of this example is the following:</p><pre><code>Get data via HTTP
+Convert them in XML
+Save them into Postgres Database
+
+Get data via FTP
+Convert them in CSV
+Save them into MongoDB Database
+
+Get data from MySQL
+Do Nothing
+Send them via HTTP
+</code></pre><h1 id=4-observer>4. Observer</h1><p>The Observer pattern is a behavioral design pattern that allows to <strong>decouple events handling from the main program</strong>.</p><p>Imagine having a main program that triggers many events, e.g. data insertion in DB, and the program must be <strong>reactive</strong> to these events. The observer is the perfect pattern for this use cases</p><p>The keypoints to properly implement such a pattern are:</p><ul><li>an interface that define a common signature for all the observers</li><li>a class, acting as event emitter, that loops through all the observers in order to notify them</li></ul><p>Here is an example:</p><ul><li><p>the Observer interface defines the signature for the <em>react</em> method</p><pre><code>public interface Observer {
+  public void react();
+}
+</code></pre></li><li><p>a set of classes that implements such an interface</p><pre><code>public class Notifier implements Observer {  
+  @Override
+  public void react() {
+      System.out.println(&quot;Notify 3rd party application via HTTP&quot;);
+  }
+}
+  
+public class Logger implements Observer {
+  @Override
+  public void react() {
+      System.out.println(&quot;Log event on central log server&quot;);
+  }
+}
+  
+public class Validator implements Observer {
+  @Override
+  public void react() {
+      System.out.println(&quot;Validate the submitted data&quot;);
+  }
+}
+</code></pre></li><li><p>a class acting as event emitter</p><pre><code>import java.util.ArrayList;
+import java.util.List;
+  
+public class DataHandler {
+  private List&lt;Observer&gt; observers = new ArrayList&lt;&gt;();
+    
+  public void addObserver(Observer obs) {
+      observers.add(obs);
+  }
+  
+  public void removeObserver(Observer obs) {
+      observers.remove(obs);
+  }
+    
+  public void saveData(int data) {
+    	
+      System.out.println(&quot;Data &quot;+data+&quot; saved correctly&quot;);
+    	
+      notifyObservers();
+  }
+    
+  public void notifyObservers() {
+      observers.forEach(Observer::react);
+  }
+}
+</code></pre></li><li><p>the main program has only to register the observers and trigger the event</p><pre><code>  public static void main(String[] args) {
+      DataHandler dh = new DataHandler();
+    	
+      dh.addObserver(new Validator());
+      dh.addObserver(new Notifier());
+      dh.addObserver(new Logger());
+    	
+      dh.saveData(1);
+      System.out.println(&quot;=====&quot;);
+    	
+      dh.saveData(2);
+      System.out.println(&quot;=====&quot;);
+    	
+      dh.saveData(3);
+      System.out.println(&quot;=====&quot;);
+  
+  }
+</code></pre></li></ul><h1 id=5-facade>5. Facade</h1><p>The Facade pattern is architectural pattern that is very useful to <strong>provide a simple interface for complex and big subsystem</strong>.</p><p>The unique requirement to adopt such a pattern is having a class that provide to clients simple signatures encapsulating, under the hood, all the complexities of a subsystem.</p><p>Here is an example:</p><ul><li><p>we have a &ldquo;big&rdquo; subsystem composed by meals and chef that must be coordinated for breakfast, lunch and dinner in a restaurant</p><pre><code>public class Meal {
+  private String description;
+    
+  public Meal (String mealtype) {
+      this.description = mealtype;
+  }
+    
+  public String getDescription() {
+      return this.description;
+  }
+}
+  
+public interface Chef {
+  public Meal cook();
+}
+  
+public class DessertChef implements Chef {
+  
+  //A chef able to cook only Dessert
+    
+  public Meal cook() {
+      return new Meal(&quot;Dessert&quot;);
+  }
+  
+}
+  
+public class PizzaChef implements Chef {
+  
+  //A chef able to cook only Pizza
+    
+  public Meal cook() {
+      return new Meal(&quot;Pizza&quot;);
+  }
+  
+}
+  
+public class HamburgerChef implements Chef {
+  
+  //A chef able to cook only Hamburger
+    
+  public Meal cook() {
+      return new Meal(&quot;Hamburger&quot;);
+  }
+  
+}
+</code></pre></li><li><p>The facade class in this case is the following Restaurant class that defines which chef should work for breakfast, lunch and dinner</p><pre><code>public class Restaurant {
+  private Chef cook1 = new DessertChef();
+  private Chef cook2 = new PizzaChef();
+  private Chef cook3 = new HamburgerChef();
+    
+  public Meal breakfast() {
+      return cook1.cook();
+  }
+    
+  public Meal lunch() {
+      return cook3.cook();
+  }
+    
+  public Meal dinner() {
+      return cook2.cook();
+  }
+}
+</code></pre></li><li><p>that main program can use the facade class as follows:</p><pre><code>  public static void main(String[] args) {
+      Restaurant sirninos = new Restaurant();
+    	
+      Meal breakfast = sirninos.breakfast();
+      System.out.println(breakfast.getDescription());
+    	
+      Meal lunch = sirninos.lunch();
+      System.out.println(lunch.getDescription());
+    	
+      Meal dinner = sirninos.dinner();
+      System.out.println(dinner.getDescription());
+    	
+  }
+</code></pre></li></ul><p>The client (in this case the main program) is absolutely not aware about which chef will cook for breakfast, lunch or dinner; it simply asks for a good meal &mldr;</p><h1 id=bonus-lazy-loading>Bonus: Lazy Loading</h1><p>The Lazy Loading pattern is a performance improving pattern that allows to <strong>postpone the initialization of an element only when it&rsquo;s really needed</strong>.</p><p>The unique requirement here is to properly handle the initialization in the getter methods. Here is an example with an object containing a List<string> as private field:</p><pre><code>import java.util.ArrayList;
+import java.util.List;
+
+public class MyObject {
+	
+    private List&lt;String&gt; names;
+	
+    public List&lt;String&gt; getNames(){
+        if(names == null) {
+            initNames();
+        }
+		
+        return names;
+    }
+
+    private void initNames() {
+        this.names = new ArrayList&lt;&gt;();
+        names.add(&quot;Seth Gibbs&quot;);
+        names.add(&quot;Adele Villegas&quot;);
+        names.add(&quot;Meadow Cannon&quot;);
+        names.add(&quot;Manav Redfern&quot;);
+        names.add(&quot;Alba Spencer&quot;);
+        names.add(&quot;Ishan Hays&quot;);
+        names.add(&quot;Zachary Ireland&quot;);
+        names.add(&quot;Asad Kavanagh&quot;);
+        names.add(&quot;Laylah Spears&quot;);
+        names.add(&quot;Yaqub Howells&quot;);
+    }
+
+}
+</code></pre><p>The keypoint is:</p><pre><code>if(names == null) {
+    initNames();
+}
+</code></pre><p>The first time the getter method getNames() is used, the initNames method initialize the names field. This makes the objet allocation phase much faster, in particular when the init of a fields requires a lot of time.</p><h1 id=conclusion>Conclusion</h1><p>Following a design pattern is the best way possible you have to solve a problem without undesired side effects.</p><p>The upmentioned design pattern are a must-know set of development pattern; but knowing them is not enough! Using design pattern is the keypoint that makes the difference between a wretched software (even if working) and a excellent one.</p><p>My recommendation is to spend effort in challenging yourself using one Design Pattern at a time, day by day&mldr; Until their usage will be natural in your software design and development process.</p><p>All the code shown in this post is availabe here on <a href=https://github.com/sirnino/sirnino-posts-src/tree/master/top-5-design-pattern-every-programmer-should-know-and-use title=Github>@sirnino/sirnino-posts-src/top-5-design-pattern-every-programmer-should-know-and-use</a>.</p></div><div class=btn-improve-page><a href=https://github.com/sirnino/sirnino.github.io/edit/master/content/posts/top-5-design-pattern-every-programmer-should-know-and-use.md><i class="fas fa-code-branch"></i>Improve This Page</a></div><hr><div class="row next-prev-navigator"><div class="col-md-6 previous-article"><a href=/posts/how-i-am-leveraging-my-it-skills-against-covid-19-pandemic/ class="btn btn-outline-info"><span><i class="fas fa-chevron-circle-left"></i>Prev</span><br><span>How I am leveraging my IT skills against Covid-19 pandemic</span></a></div><div class="col-md-6 next-article"><a href=/posts/solid-principles/dip-depencency-inversion-principle-with-examples/ class="btn btn-outline-info"><span>Next <i class="fas fa-chevron-circle-right"></i></span><br><span>DIP - Depencency Inversion Principle (with examples)</span></a></div></div><hr></div></div></div></section><section class=toc-section id=toc-section></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>Navigation</h5><ul><li class=nav-item><a class=smooth-scroll href=/#about>About</a></li><li class=nav-item><a class=smooth-scroll href=/#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=/#experiences>Experiences</a></li><li class=nav-item><a class=smooth-scroll href=/#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact Me</h5><ul><li><span>Email:</span> <span>asirchia@gmail.com</span></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=#><img src=/assets/images/inverted-logo.png>
+Toha</a></div><div class="col-md-4 text-center">© 2020 Copyright.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/>Powered by Hugo
+<img src=/assets/images/hugo-logo-wide.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script src=/assets/js/jquery-3.4.1.min.js></script><script src=/assets/js/bootstrap.min.js></script><script src=/assets/js/navbar.js></script><script src=/assets/js/main.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script><script src=/assets/js/single.js></script><script>hljs.initHighlightingOnLoad();</script></body></html>
