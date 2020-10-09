@@ -1,0 +1,39 @@
+# section information
+section:
+  name: Experiences
+  enable: true
+  weight: 3
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true 
+
+# Your experiences
+experiences:
+- company:
+    name: Engineering Ingegneria Informatica
+    url: "https://eng.it"
+    location: Palermo, Italy
+    # company overview
+    overview: 
+  positions:
+  - designation: Software Developer
+    start: Apr 2014
+    # don't provide end date if you are currently working there. It will be replaced by "Present"
+    # end: Dec 2020
+    # give some points about what was your responsibilities at the company.
+    responsibilities:
+    - Develop Java application for EU projects in the Public Sector Innovation domain.
+
+  - designation: Software Architect
+    start: Oct 2016
+    responsibilities:
+    - Design software architecture for several EU projects in the Public Sector Innovation domain.
+    - Lead the development team
+
+  - designation: Scrum Master
+    start: Oct 2019
+    responsibilities:
+    - Act as a servant Leader of the development team
+    - Introduce Agile Engineering practices
+    - Arrange and optimize product backlog
+    - Organize scrum events as necessary
