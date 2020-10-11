@@ -1,0 +1,3 @@
+[submodule "src/static/assets/code/CommitMessageBuilder"]
+	path = src/static/assets/code/CommitMessageBuilder
+	url = https://github.com/sirnino/Commit-Message-Builder.git
