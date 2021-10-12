@@ -52,6 +52,3 @@ fields:
     maxSize: 64
   label: hero
   default: "/uploads/default-hero.jpg"
-pages:
-- src/content/posts/how-to-use-function-points.md
-- src/content/posts/how-to-write-a-good-commit-message.md
