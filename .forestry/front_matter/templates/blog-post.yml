@@ -53,5 +53,4 @@ fields:
   label: hero
   default: "/uploads/default-hero.jpg"
 pages:
-- content/my-page.md
 - content/posts/how-to-build-a-gitops-pipeline.md

@@ -17,7 +17,7 @@ sections:
   label: Pages
   create: all
   match: "*"
-  new_doc_ext: ".html"
+  new_doc_ext: html
 upload_dir: static/assets/images
 public_path: "/assets/images"
 front_matter_path: ''
