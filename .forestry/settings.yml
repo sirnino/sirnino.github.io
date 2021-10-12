@@ -17,7 +17,7 @@ sections:
   label: Pages
   create: all
   match: "*"
-upload_dir: src/static/assets/images
+upload_dir: static/assets/images
 public_path: "/assets/images"
 front_matter_path: ''
 use_front_matter_path: false
