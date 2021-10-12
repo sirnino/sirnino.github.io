@@ -1,0 +1,57 @@
+---
+label: Blog post
+hide_body: false
+fields:
+- name: title
+  type: text
+  config:
+    required: true
+    min: 3
+  label: title
+- name: date
+  type: datetime
+  label: date
+  description: ''
+  config:
+    required: true
+    date_format: YYYY-MM-DD'T'HH:mm:ss'+00:00'
+    time_format: 
+    display_utc: false
+  default: now
+  hidden: true
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: description
+- name: author
+  type: field_group
+  config: {}
+  fields:
+  - name: name
+    type: text
+    config:
+      required: true
+      min: 2
+    label: name
+    default: Nino Sirchia
+  - name: avatar
+    type: file
+    config:
+      maxSize: 64
+    label: Avatar
+    default: "/uploads/default-avatar.jpg"
+  label: Author
+- name: hero
+  type: file
+  config:
+    maxSize: 64
+  label: hero
+  default: "/uploads/default-hero.jpg"
+pages:
+- src/content/posts/how-to-use-function-points.md
+- src/content/posts/how-to-write-a-good-commit-message.md

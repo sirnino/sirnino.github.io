@@ -1,0 +1,55 @@
+# section information
+section:
+  name: Projects
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# filter buttons
+buttons:
+- name: All
+  filter: "all"
+- name: Professional
+  filter: "professional"
+- name: Hobby
+  filter: "hobby"
+
+# your projects
+projects:
+- name: Digital Enabler
+  logo: assets/images/projects/de.png
+  role: Team Leader
+  timeline: "Oct 2016 - Present"
+  #repo:  # If your project is a public repo on GitHub, then provide this link. it will show star count.
+  url: https://digitalenabler.eng.it  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  summary: Cloud Platform for enabling digital services development
+  tags: ["professional", "cloud"]
+
+- name: Commit Message Builder
+  logo: assets/images/projects/js.jpg
+  role: Developer
+  timeline: "2020"
+  #repo: 
+  url: https://sirnino.github.io/Commit-Message-Builder/
+  summary: A Simple commit message builder intended for helping developers in writing better commit messages
+  tags: ["hobby", "development"]
+
+- name: DE4Bios
+  logo: assets/images/projects/de.png
+  role: Team Leader
+  timeline: "Mar 2020 - Nov 2020"
+  #repo: 
+  #url:
+  summary: Biosurveillance system, powered by Digital Enabler, to monitor the Covid19 pandemic in some italian regions
+  tags: ["professional", "health"]
+
+- name: Property Manager
+  logo: assets/images/projects/java.png
+  role: Developer
+  timeline: "2018"
+  repo: https://github.com/sirnino/PropertyManager/
+  #url: 
+  summary: A library for managing several types of application properties. Both local, environmental and remote ones.
+  tags: ["hobby", "development"]
