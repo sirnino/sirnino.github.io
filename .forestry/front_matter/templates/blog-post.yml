@@ -52,5 +52,3 @@ fields:
     maxSize: 64
   label: hero
   default: "/uploads/default-hero.jpg"
-pages:
-- content/posts/how-to-build-a-gitops-pipeline.md
