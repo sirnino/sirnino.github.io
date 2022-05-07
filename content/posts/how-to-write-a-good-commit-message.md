@@ -1,7 +1,7 @@
 +++
 date = 2020-10-15T17:31:34Z
 description = "Guidelines on why and the how writing a good git commit message"
-hero = "/uploads/default-hero.jpg"
+hero = "/assets/images/git-commit-history.png"
 title = "How to write a good commit message"
 [author]
 avatar = "/uploads/default-avatar.jpg"
