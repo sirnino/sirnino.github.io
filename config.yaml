@@ -1,6 +1,6 @@
 baseURL: https://sirnino.it
 languageCode: it-it
-title: Nino Sirchia
+title: Antonino Sirchia
 theme: toha
 
 # Allow raw html in markdown file
@@ -19,7 +19,7 @@ enableEmoji: true
 # Custom parameters
 params:
   # Copyright Notice
-  copyright: © 2021 Copyright.
+  copyright: © 2022 Copyright.
 
   # Meta description for your site.  This will help the search engines to find your site.
   description: Blog for software developer and technology fans.
@@ -57,8 +57,8 @@ params:
 
   # some information about you
   author:
-    name: "Nino Sirchia"
-    nickname: "Nino Sirchia"
+    name: "Antonino Sirchia"
+    nickname: "Antonino Sirchia"
     image: "/assets/images/default-avatar.jpg"
     # give your some contact information. they will be used in the footer
     contactInfo:
