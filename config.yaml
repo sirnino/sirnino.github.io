@@ -22,7 +22,7 @@ params:
   copyright: © 2022 Copyright.
 
   # Meta description for your site.  This will help the search engines to find your site.
-  description: Blog for software developer and technology fans.
+  description: "Antonino Sirchia's personal website"
 
   # background image of the landing page
   background: "assets/images/background.jfif"
@@ -66,7 +66,7 @@ params:
     # a summary of what you do
     summary:
     - Software Engineer
-    - Solution Architect
+    - Cloud Solution Architect
     - Java developer
     - ICT Project manager
 
