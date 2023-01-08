@@ -1,7 +1,7 @@
 +++
 date = 2023-01-08T14:30:00Z
 description = "In this post we will explore Generative AI, its impact in our lives and how it is currently being used in various fields."
-hero = "/assets/images/it-covid-19.png"
+hero = "/assets/images/generative-ai.png"
 title = "Generative AI the new 'Big thing'"
 [author]
 avatar = "/uploads/default-avatar.jpg"
