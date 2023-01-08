@@ -19,18 +19,19 @@ skills:
   icon: "assets/images/skills/arch.png"
   summary: "Able to define components boundaries and design mantainable, scalable and robust software architectures."
 
-- name: Cloud Computing
+- name: Cloud platforms
   icon: "assets/images/skills/cloud.png"
   summary: "Worked with most of the major clouds such as GCP, AWS, Azure etc."
 
-- name: Docker
-  icon: "assets/images/skills/docker.svg"
-  summary: "Write most of the programs as dockerized container. Experienced with multi-stage build process."
-  url: "https://www.docker.com/"
+- name: Kubernetes
+  icon: "assets/images/skills/Kubernetes.png"
+  summary: "Deploy almost all my software on Kubernetes clusters."
+  url: "https://www.kubernetes.io/"
 
-- name: Linux
-  icon: "assets/images/skills/linux.png"
-  summary: "Using as the main operating system. Capable of writing simple bash/shell scripts."
+- name: CI/CD
+  icon: "assets/images/skills/cicd.png"
+  summary: "I'm a fan of making tests, delivery and (sometimes) the deployment of my software as much automatic as possible. I like to work with CircleCI but I worked also with Jenkins and Travis"
+  url: "https://circleci.com"
 
 - name: Git
   icon: "assets/images/skills/git.png"
