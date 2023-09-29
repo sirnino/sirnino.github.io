@@ -18,13 +18,29 @@ buttons:
 
 # your projects
 projects:
+- name: Municity
+  role: Technical Coordinator
+  timeline: "Jan 2022 - Dec 2022"
+  #repo: 
+  # url: 
+  summary: IoT platform focused on Smart lighting for multiple sicilian cities
+  tags: ["professional", "iot"]
+
+- name: MES-CoBraD
+  role: Technical Coordinator
+  timeline: "Apr 2021 - Dec 2023"
+  #repo: 
+  url: https://mes-cobrad.eu
+  summary: AI-powered medical research and clinical platform 
+  tags: ["professional", "health", "research"]
+
 - name: Digital Enabler
   logo: assets/images/projects/de.png
-  role: Team Leader
+  role: Product Technical Manager 
   timeline: "Oct 2016 - Present"
   #repo:  # If your project is a public repo on GitHub, then provide this link. it will show star count.
-  url: https://digitalenabler.eng.it  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
-  summary: Cloud Platform for enabling digital services development
+  url: https://digital-enabler.eng.it  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  summary: Cloud Data Platform for enabling digital services development
   tags: ["professional", "cloud"]
 
 - name: Commit Message Builder

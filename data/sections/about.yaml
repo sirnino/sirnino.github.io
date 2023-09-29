@@ -35,15 +35,11 @@ socialLinks:
 
 - name: LinkedIn
   icon: "fab fa-linkedin"
-  url: "https://www.linkedin.com/in/antonino-sirchia-15009062"
+  url: "https://www.linkedin.com/in/antoninosirchia/"
 
 - name: Twitter
   icon: "fab fa-twitter"
   url: "https://twitter.com/AntoninoSirchia"
-
-- name: Fiverr
-  icon: "fas fa-headset"
-  url: "https://www.fiverr.com/sirnino87"
 
 # your soft skills
 # give the percentage between 50 to 100 with 5 intervals.
@@ -59,7 +55,7 @@ softSkills:
   percentage: 95
   color: green
 - name: Communication
-  percentage: 85
+  percentage: 90
   color: pink
 - name: Fast Learner
   percentage: 95
