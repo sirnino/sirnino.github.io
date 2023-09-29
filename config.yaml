@@ -1,4 +1,4 @@
-baseURL: https://sirnino.it
+baseURL: https://antoninosirchia.it
 languageCode: it-it
 title: Antonino Sirchia
 theme: toha
@@ -19,7 +19,7 @@ enableEmoji: true
 # Custom parameters
 params:
   # Copyright Notice
-  copyright: © 2022 Copyright.
+  copyright: © 2023 Copyright.
 
   # Meta description for your site.  This will help the search engines to find your site.
   description: "Antonino Sirchia's personal website"
@@ -39,7 +39,7 @@ params:
   gitRepo: https://github.com/sirnino/sirnino.github.io
 
   # specify whether you want to write blog post or not
-  enableBlogPost: true
+  enableBlogPost: false
 
   # specify whether you want to show Table of Contents in reading page
   enableTOC: false
@@ -68,6 +68,6 @@ params:
     - Software Engineer
     - Cloud Solution Architect
     - Java developer
-    - ICT Project manager
+    - Technical manager
 
 googleAnalytics: G-QDTJ3GE634
