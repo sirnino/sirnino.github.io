@@ -18,8 +18,16 @@ buttons:
 
 # your projects
 projects:
+- name: EasyGov
+  role: Architect
+  timeline: "Jan 2024 - Present"
+  #repo: 
+  # url: 
+  summary: Platform to allow swiss professionals to manage their administrative process with ease.
+  tags: ["professional", "public administration"]
+
 - name: Municity
-  role: Technical Coordinator
+  role: Technical Manager
   timeline: "Jan 2022 - Dec 2022"
   #repo: 
   # url: 
@@ -37,9 +45,9 @@ projects:
 - name: Digital Enabler
   logo: assets/images/projects/de.png
   role: Product Technical Manager 
-  timeline: "Oct 2016 - Present"
+  timeline: "Oct 2016 - Dec 2023"
   #repo:  # If your project is a public repo on GitHub, then provide this link. it will show star count.
-  url: https://digital-enabler.eng.it  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  url: https://docs.digital-enabler.eng.it  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
   summary: Cloud Data Platform for enabling digital services development
   tags: ["professional", "cloud"]
 
@@ -47,7 +55,7 @@ projects:
   logo: assets/images/projects/js.jpg
   role: Developer
   timeline: "2020"
-  #repo: 
+  #repo:
   url: https://sirnino.github.io/Commit-Message-Builder/
   summary: A Simple commit message builder intended for helping developers in writing better commit messages
   tags: ["hobby", "development"]
@@ -58,14 +66,5 @@ projects:
   timeline: "Mar 2020 - Nov 2020"
   #repo: 
   #url:
-  summary: Biosurveillance system, powered by Digital Enabler, to monitor the Covid19 pandemic in some italian regions
+  summary: Biosurveillance system to monitor the Covid-19 pandemic in some italian regions
   tags: ["professional", "health"]
-
-- name: Property Manager
-  logo: assets/images/projects/java.png
-  role: Developer
-  timeline: "2018"
-  repo: https://github.com/sirnino/PropertyManager/
-  #url: 
-  summary: A library for managing several types of application properties. Both local, environmental and remote ones.
-  tags: ["hobby", "development"]

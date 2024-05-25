@@ -6,11 +6,11 @@ section:
   showOnNavbar: true
 
 # your designation
-designation: Software Engineer
+designation: Architect
 # your company information
 company:
-  name: Engineering Ingegneria Informatica
-  url: "https://eng.it"
+  name: ELCA
+  url: "https://elca.ch"
 
 # your resume. this file path should be relative to you "static" directory
 resume: "files/resume.pdf"

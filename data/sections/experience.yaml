@@ -8,16 +8,29 @@ section:
   # hideTitle: true 
 
 # Your experiences
-experiences:    
+experiences:
+- company:
+    name: ELCA
+    url: "https://elca.ch"
+    location: Palermo, Italy
+    # company overview
+    overview: Swiss company focused on providing tailor-made and standardized solutions to support digital transformation in Switzerland.
+  positions:
+  - designation: Architect
+    start: Jan 2024
+    responsibilities:
+    - Design system architectures for IT projects in the swiss market.
+    - Lead the development team
 - company:
     name: Engineering Ingegneria Informatica
     url: "https://eng.it"
     location: Palermo, Italy
     # company overview
-    overview: Digital Transformation Company, leader in Italy and expanding its global footprint, with around 15,000 associates, with over 70 offices spread across Europe, the United States, and South America and global delivery. 
+    overview: Digital Transformation Company, leader in Italy with a worldwide footprint. 
   positions:
-  - designation: Product Technical Manager
+  - designation: Technical Manager
     start: Jan 2021
+    end: Dec 2023
     responsibilities:
     - Act as a servant Leader of the development team
     - Coordinate the efforts of the team over multiple projects
@@ -26,15 +39,16 @@ experiences:
     start: Oct 2019
     end: Jul 2023
     responsibilities:
-    - Introduce Agile Engineering practices
+    - Introduce Agile practices
     - Arrange and optimize product backlog
-    - Organize scrum events as necessary
+    - Organize and moderate scrum events as necessary
   - designation: IT Architect
     start: Oct 2016
+    end: Dec 2023
     responsibilities:
     - Design software architecture for several EU projects in the Public Sector Innovation domain.
     - Lead the development team
-  - designation: Software Developer
+  - designation: Software Engineer
     start: Apr 2014
     end: Dec 2020
     # don't provide end date if you are currently working there. It will be replaced by "Present"
