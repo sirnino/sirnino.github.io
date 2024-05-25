@@ -19,7 +19,7 @@ enableEmoji: true
 # Custom parameters
 params:
   # Copyright Notice
-  copyright: © 2023 Copyright.
+  copyright: © 2024 Copyright.
 
   # Meta description for your site.  This will help the search engines to find your site.
   description: "Antonino Sirchia's personal website"
@@ -66,6 +66,5 @@ params:
     # a summary of what you do
     summary:
     - Software Engineer
-    - Cloud Solution Architect
-    - Java developer
+    - System Architect
     - Technical manager
