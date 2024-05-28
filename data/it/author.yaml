@@ -1,0 +1,16 @@
+# some information about you
+name: "Antonino Sirchia"
+nickname: "Nino"
+greeting: "Ciao, sono"
+image: "/assets/images/default-avatar.jpg"
+# give your some contact information. they will be used in the footer
+contactInfo:
+  email: "asirchia@gmail.com"
+  github: sirnino
+  linkedin: antoninosirchia
+
+# a summary of what you do
+summary:
+- Software Engineer
+- System Architect
+- Technical manager

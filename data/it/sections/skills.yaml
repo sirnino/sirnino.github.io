@@ -1,0 +1,39 @@
+# section information
+section:
+  name: Skills
+  enable: false
+  weight: 2
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your Skills.
+# Give a summary of you each skill in the summary section.
+skills:
+- name: Java
+  icon: "assets/images/skills/java.png"
+  summary: "Able to write scalable, testable, maintainable and best practice compliant applications."
+  #url: 
+
+- name: IT architecture
+  icon: "assets/images/skills/arch.png"
+  summary: "Able to define components boundaries and design mantainable, scalable and robust software architectures."
+
+- name: Cloud platforms
+  icon: "assets/images/skills/cloud.png"
+  summary: "Worked with most of the major clouds such as GCP, AWS, Azure etc."
+
+- name: Kubernetes
+  icon: "assets/images/skills/Kubernetes.png"
+  summary: "Deploy almost all my software on Kubernetes clusters."
+  url: "https://www.kubernetes.io/"
+
+- name: CI/CD
+  icon: "assets/images/skills/cicd.png"
+  summary: "I'm a fan of making tests, delivery and (sometimes) the deployment of my software as much automatic as possible. I like to work with CircleCI but I worked also with Jenkins and Travis"
+  url: "https://circleci.com"
+
+- name: Data management
+  #icon: "assets/images/skills/git.png"
+  summary: "Define data pipelines and data architectures. Manage and configure Data Lakes and Data Warehouses"
+  #url: "https://git-scm.com/"
