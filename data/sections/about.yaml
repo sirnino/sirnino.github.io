@@ -21,17 +21,9 @@ summary: 'Software engineer and architect for passion and profession. Curious in
 # your social links
 # give as many as you want. use font-awesome for the icons.
 socialLinks:
-- name: Email
-  icon: "fas fa-envelope"
-  url: "asirchia@gmail.com"
-
 - name: Github
   icon: "fab fa-github"
   url: "https://www.github.com/sirnino"
-
-- name: Stackoverflow
-  icon: "fab fa-stack-overflow"
-  url: "https://stackoverflow.com/users/4442344/sirnino"
 
 - name: LinkedIn
   icon: "fab fa-linkedin"
@@ -45,19 +37,16 @@ socialLinks:
 # give the percentage between 50 to 100 with 5 intervals.
 # currently supported colors: blue, yellow, pink, green, sky, orange
 softSkills:
-- name: Leadership
-  percentage: 90
-  color: blue
 - name: Team Work
   percentage: 95
   color: yellow
-- name: Agile methodologies
+- name: Time Management
   percentage: 95
   color: green
 - name: Communication
   percentage: 90
   color: pink
-- name: Fast Learner
+- name: Public Speaking
   percentage: 95
   color: sky
 - name: Problem Solving
