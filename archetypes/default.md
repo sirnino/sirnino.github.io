@@ -1,6 +1,6 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
-draft: true
+hero: /images/background/sunrise.jpg
+author:
+    name: Md. Emruz Hossain
+    image: /images/profile-image.jpg
 ---
-

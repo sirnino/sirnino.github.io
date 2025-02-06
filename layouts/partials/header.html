@@ -1,28 +1,24 @@
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QDTJ3GE634"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-
-  gtag('config', 'G-QDTJ3GE634');
-</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<!-- ============ import common css ========== -->
-<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/assets/css/main.css" />
-<link rel="stylesheet" href="/assets/css/style.css" />
-<link rel="stylesheet" href="/assets/css/navigators/navbar.css" />
-
-<!--=================== cdn ==============================-->
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+{{ partial "helpers/style-bundle.html" . }}
 
 <!--================= fab-icon =========================-->
-<link rel="icon" type="image/png" href="{{ .Site.Params.logo.favicon | default " /assets/images/favicon.png"}}" />
+{{/* add favicon only if the site author has provided the the favicon */}}
+{{ if site.Params.logo.favicon }}
+  {{ $favicon := site.Params.logo.favicon }}
 
-<!--================= custom style overrides =========================-->
-<link rel="stylesheet" href="/assets/css/style.css" />
+  {{/* resize the favicon. don't resize svg because it is not supported */}}
+  {{ $favicon = resources.Get $favicon }}
+  {{ if and $favicon (ne $favicon.MediaType.SubType "svg") }}
+    {{ $favicon = $favicon.Resize "42x" }}
+  {{ end }}
+  {{ $favicon = $favicon.RelPermalink}}
+
+  <link rel="icon" type="image/png" href="{{ $favicon }}" />
+{{end}}
+
+{{ with .OutputFormats.Get "rss" -}}
+  {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+{{ end }}

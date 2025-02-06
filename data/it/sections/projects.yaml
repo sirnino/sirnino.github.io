@@ -1,0 +1,114 @@
+# informazioni sulla sezione
+section:
+  name: Progetti
+  id: projects
+  enable: true
+  weight: 5
+  showOnNavbar: true
+  # Opzionalmente, è possibile nascondere il titolo nella sezione
+  # hideTitle: true
+
+# pulsanti di filtro
+buttons:
+- name: Tutti
+  filter: "all"
+- name: Progetti di mercato
+  filter: "customer"
+- name: Progetti di ricerca
+  filter: "research"
+- name: Gare
+  filter: "tender"
+
+projects:
+- name: EasyGov
+  role: Architect
+  timeline: "Gen 2024 - Presente"
+  url: https://easygov.swiss
+  summary: Portale online di facile utilizzo per le imprese in Svizzera.
+  tags: ["pubblica amministrazione", "customer"]
+
+- name: Ecosistema Digitale Urbano
+  role: Architect
+  timeline: "Gen 2023 - Dic 2023"
+  summary: Coordinamento della piattaforma Digital Enabler per l'infrastruttura IoT di Milano.
+  tags: ["iot", "sviluppo urbano", "customer", "tender"]
+
+- name: Invest4Nature
+  role: Technical Manager
+  timeline: "Lug 2022 - Dic 2023"
+  summary: Progetto finanziato dall'UE incentrato su investimenti sostenibili e soluzioni digitali per la conservazione della natura.
+  tags: ["sostenibilità", "research"]
+
+- name: DigiBUILD
+  logo: /images/projects/logo-digibuild.jpg
+  role: Technical Manager
+  timeline: "Giu 2022 - Dic 2023"
+  summary: Progetto di ricerca finanziato dall'UE sui Digital Twin per edifici intelligenti.
+  tags: ["digital twin", "research"]
+
+- name: PIMOT
+  role: Technical Manager
+  timeline: "Gen 2022 - Dic 2022"
+  summary: Piattaforma di monitoraggio dei disastri ambientali e allerta precoce per la Regione Veneto.
+  tags: ["ambiente", "gestione dei disastri", "customer", "tender"]
+
+- name: RUACH Smart Lighting
+  role: Architect
+  timeline: "Gen 2022 - Dic 2022"
+  summary: Progetto IoT per l'illuminazione intelligente nei comuni siciliani.
+  tags: ["iot", "illuminazione intelligente", "customer"]
+
+- name: Virgilio per la Continuità Operativa ENI
+  role: Architect
+  timeline: "Set 2021 - Mar 2022"
+  summary: Monitoraggio e gestione dei sistemi IT per i data center e il software di ENI.
+  tags: ["continuità operativa", "cloud", "customer"]
+
+- name: MES-CoBraD
+  role: Architect
+  timeline: "Apr 2021 - Dic 2023"
+  url: https://mes-cobrad.eu
+  summary: Piattaforma di ricerca medica e clinica basata sull'intelligenza artificiale.
+  tags: ["salute", "research", "ai"]
+
+- name: MyPass
+  role: Technical Manager
+  timeline: "Lug 2020 - Gen 2023"
+  summary: Progetto di ricerca italiano per una piattaforma MaaS a Napoli e Cagliari.
+  tags: ["mobilità", "smart city", "research"]
+
+- name: DE4Bios
+  role: Architect
+  timeline: "Feb 2020 - Nov 2020"
+  summary: Sistema di biosorveglianza per il COVID-19 in Veneto e Lombardia.
+  tags: ["salute", "covid-19", "customer"]
+
+- name: AI4Cities
+  role: Technical Manager
+  timeline: "Gen 2020 - Gen 2022"
+  summary: Soluzioni basate sull'intelligenza artificiale per la riduzione della CO2 nei settori della mobilità e dell'energia.
+  tags: ["ai", "sostenibilità", "tender"]
+
+- name: Select4Cities
+  role: Architect
+  timeline: "Gen 2017 - Gen 2019"
+  summary: Piattaforma IoE per progetti di smart city a Helsinki, Anversa e Copenaghen.
+  tags: ["smart city", "iot", "tender"]
+
+- name: CEDUS - City Enabler for Digital Urban Services
+  role: Architect
+  timeline: "Ott 2016 - Dic 2019"
+  summary: Piattaforma di servizi urbani basata su FIWARE per le smart city.
+  tags: ["smart city", "iot", "research"]
+
+- name: WeLive
+  role: Software Engineer
+  timeline: "Mag 2015 - Gen 2018"
+  summary: "Un progetto incentrato sulla co-creazione dei cittadini e l'innovazione aperta nelle smart city."
+  tags: ["smart city", "open-government", "research"]
+
+- name: MyOpenGov
+  role: Software Engineer
+  timeline: "Apr 2015 - Gen 2017"
+  summary: "Una piattaforma volta ad aumentare la trasparenza e la partecipazione dei cittadini nella governance."
+  tags: ["smart city", "open-government", "research"]

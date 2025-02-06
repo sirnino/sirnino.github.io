@@ -1,0 +1,76 @@
+section:
+  name: Experiences # Titre de la section (par défaut: "" )
+  id: experiences # url id/slug of section *Required*
+  enable: true
+  weight: 3
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  hideTitle: false 
+
+# Your experiences
+experiences:
+- company:
+    name: ELCA
+    url: "https://elca.ch"
+    location: Palermo, Italia
+    logo: /images/experiences/logo-elca.svg
+    # panoramica dell'azienda
+    overview: ELCA è un'azienda svizzera specializzata nell'offrire soluzioni personalizzate e standardizzate per supportare la trasformazione digitale in vari settori in Svizzera. Con decenni di esperienza e un team di oltre 2.200 esperti, ELCA aiuta i suoi clienti ad affrontare le complessità dell'era digitale.
+  positions:
+  - designation: IT Architect e Technical Manager
+    start: Gen 2024
+    responsibilities:
+    - Progettare architetture software scalabili, sicure e manutenibili per progetti innovativi.
+    - Guidare e fare da mentore ai team di sviluppo.
+    - Condurre e coordinare svariati team di sviluppo, promuovendo best practice e crescita professionale.
+    - Collaborare con gli stakeholder per definire requisiti e soluzioni integrate.
+    - Monitorare priorità, rischi e performance dei progetti.
+
+- company:
+    name: Engineering Ingegneria Informatica
+    url: "https://eng.it"
+    location: Palermo, Italia
+    logo: /images/experiences/logo-eng.png
+    # panoramica dell'azienda
+    overview: Azienda italiana di trasformazione digitale con una forte presenza globale, che offre soluzioni innovative per guidare la trasformazione aziendale in diversi settori.
+  positions:
+  - designation: Technical Manager
+    start: Gen 2021
+    end: Dic 2023
+    responsibilities:
+    - Agire come servant-leader del team di sviluppo, promuovendo un ambiente collaborativo e la crescita professionale dei membri.
+    - Coordinare gli sforzi del team su più progetti, ottimizzando le risorse e garantendo sinergia tra le iniziative.
+    - Definire e monitorare la roadmap di evoluzione del prodotto, gestendo priorità, rischi e stakeholder per assicurare il raggiungimento degli obiettivi di business e la qualità delle soluzioni tecniche.
+
+  - designation: IT Architect
+    start: Ott 2016
+    end: Dic 2023
+    responsibilities:
+    - Progettare l'architettura software per i progetti assegnati, garantendo scalabilità, sicurezza e manutenibilità.
+    - Condurre e coordinare il team di sviluppo, promuovendo l'adozione delle best practice e assicurando la qualità del codice.
+    - Collaborare con gli stakeholder per analizzare requisiti, definire soluzioni integrate e supervisionare il ciclo di vita dei progetti.
+
+  - designation: Software Engineer
+    start: Apr 2014
+    end: Dic 2020
+    responsibilities:
+    - Sviluppare applicazioni Java per progetti UE nel dominio dell'innovazione del settore pubblico.
+    - Garantire la qualità del codice attraverso testing, code review e l'adozione delle best practice.
+    - Collaborare con team multidisciplinari per analizzare requisiti, definire soluzioni e assicurare la manutenzione continua delle applicazioni.
+
+- company:
+    name: UtlePa - Università Europea del Tempo Libero.
+    url: "https://www.utle.it"
+    location: Palermo, Italy
+    logo: /images/experiences/utlepa.png
+    #darkLogo: /images/experiences/company-dark.png #(optional), Can optionally show a different logo for dark theme
+    # company overview
+    overview: Utlepa è un'associazione senza scopo di lucro dedicata all'apprendimento permanente e all'arricchimento culturale a Palermo. Da oltre 20 anni promuove l'educazione, l'inclusione sociale e lo scambio intergenerazionale attraverso corsi, seminari e collaborazioni internazionali.
+  positions:
+  - designation: Insegnante di informatica
+    start: Dic 2011
+    end: May 2014
+    responsibilities:
+    - Svolgere corsi di informatica per i membri dell'associazione
+    - Adattare i contenuti del corso alle esigenze e al livello di conoscenza delle classi
+    - Produrre e fornire materiali didattici per supportare l'apprendimento pratico delle competenze informatiche
