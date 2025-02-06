@@ -117,34 +117,11 @@ params:
       
     # Enable Analytics
     analytics:
-      enabled: false
+      enabled: true
       services:
-        # cloudflare web analytics
-        # cloudflare:
-        #   token: "<token>"
         # Google Analytics
-        # google:
-        #  id: X-XXXXXXXXX
-        # # CounterDev
-        # counterDev:
-        #   id: <your counterdev id>
-        # # GoatCounter
-        # goatCounter:
-        #   code: <your goat counter code>
-        # # Matomo / Piwik
-        # matomo:
-        #   instance: matomo.example.com
-        #   siteId: 1 # Or any other number
-        # # Umami
-        # umami:
-        #   scheme: https
-        #   instance: umami.example.com
-        #   id: <your umami site id>
-        # # Statcounter
-        # statcounter:
-        #   project: 1234567890
-        #   invisible: 1
-        #   security: deadbeef
+        google:
+         id: G-QDTJ3GE634
     # Enable Support
     support:
       enable: false
