@@ -97,14 +97,14 @@ params:
 
     # Enable and configure blog posts
     blog:
-      enable: false
-      #showAuthor: false
+      enable: true
+      showAuthor: false
       # Share post on different social media
-      #shareButtons:
-      #  facebook: true
-      #  twitter: true
-      #  linkedin: true
-      #  reddit: true
+      shareButtons:
+        facebook: true
+        twitter: true
+        linkedin: true
+        reddit: true
       #  email: true
         
     # Enable & configure "Notes" features
@@ -134,7 +134,7 @@ params:
 
     # specify whether you want to show Table of Contents in reading page
     toc:
-      enable: true
+      enable: false
 
     # Show tags under the post title
     tags:
