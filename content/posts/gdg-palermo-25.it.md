@@ -11,7 +11,7 @@ menu:
 ---
 
 {{< split 6 6 >}}
-Quando **Marco Martorana** mi ha chiesto di intervenire al GDG Palermo con un talk su un argomento a mia scelta, ho avuto un momento di esitazione. Volevo scegliere un tema che non solo fosse interessante per il pubblico, ma che mi appassionasse davvero. Dopo qualche riflessione, ho deciso di parlare di **Liquid Computing**, un concetto che ho avuto modo di approfondire recentemente per alcuni articoli pubblicati su **TheRedCode**. 
+Quando **[Marco Martorana](https://marcomartorana.it/)** mi ha chiesto di intervenire al GDG Palermo con un talk su un argomento a mia scelta, ho avuto un momento di esitazione. Volevo scegliere un tema che non solo fosse interessante per il pubblico, ma che mi appassionasse davvero. Dopo qualche riflessione, ho deciso di parlare di **Liquid Computing**, un concetto che ho avuto modo di approfondire recentemente per alcuni articoli pubblicati su **TheRedCode**. 
 
 Potete leggere i miei articoli su questo argomento qui: [Liquid Computing: Ottimizzazione e Fluidità per Kubernetes](https://theredcode.it/architetture/intro-liquid-computing/).
 
